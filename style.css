@@ -1,17 +1,23 @@
-/* Reset default styles */
+/* RESET DEFAULT STYLES */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Navbar styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f6f8;
+}
+
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #003366;
-  color: #fff;
+  color: white;
   padding: 15px 30px;
   position: relative;
 }
@@ -28,33 +34,58 @@
   gap: 20px;
 }
 
-.nav-links li a {
-  color: #fff;
+.nav-links li a,
+.nav-links li button {
+  color: white;
   text-decoration: none;
   font-size: 16px;
   padding: 6px 12px;
   transition: background 0.3s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
-.nav-links li a:hover {
+.nav-links li a:hover,
+.nav-links li button:hover {
   background-color: #0059b3;
   border-radius: 4px;
 }
 
-/* Login Button Specific Style */
-.login-btn {
-  background-color: #00b894;
-  color: white !important;
-  padding: 8px 14px;
-  border-radius: 5px;
-  font-weight: bold;
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
 }
 
-.login-btn:hover {
-  background-color: #019875;
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #003366;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
 }
 
-/* Hero Section */
+/* HERO SECTION */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -80,6 +111,7 @@
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  display: inline-block;
   transition: background 0.3s ease;
 }
 
@@ -87,50 +119,72 @@
   background-color: #0059b3;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  background-color: #003366;
-  color: #fff;
-  padding: 15px;
-  position: relative;
-  bottom: 0;
+/* LOGIN PAGE */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.login-container {
   width: 100%;
-  margin-top: 50px;
+  max-width: 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #003366;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* LOGOUT BUTTON */
+.logout {
+  background-color: crimson;
+  padding: 6px 12px;
+  border: none;
   color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #003366;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 10px 0;
-    z-index: 1000;
-  }
+.logout:hover {
+  background-color: darkred;
+}
 
-  .nav-links li {
-    text-align: center;
-    margin: 10px 0;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
+/* FOOTER */
+.footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 50px;
+  font-size: 14px;
 }
