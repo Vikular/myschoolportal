@@ -1,83 +1,45 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | AXYE SCHOOL</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #003366, #336699);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  <header class="navbar">
+    <div class="logo">AXYE SCHOOL</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="results.html">Results</a></li>
+      </ul>
+    </nav>
+  </header>
 
-.login-container {
-  text-align: center;
-  color: white;
-}
+  <section class="login-section">
+    <div class="login-container">
+      <h2>Student Login</h2>
+      <form id="loginForm">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" required />
 
-.school-name {
-  font-size: 32px;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
 
-.login-box {
-  background-color: white;
-  padding: 30px 40px;
-  border-radius: 10px;
-  max-width: 350px;
-  margin: 0 auto;
-  color: #333;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
+        <button type="submit" class="btn">Login</button>
+        <p id="login-error" class="error-message"></p>
+      </form>
+    </div>
+  </section>
 
-.login-box h2 {
-  margin-bottom: 20px;
-  color: #003366;
-}
+  <footer class="footer">
+    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  </footer>
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  text-align: left;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="password"] {
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  padding: 10px;
-  background-color: #003366;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #002244;
-}
-
-.note {
-  font-size: 12px;
-  margin-top: 15px;
-}
-
-.note a {
-  color: #003366;
-  text-decoration: none;
-}
+  <script src="auth.js"></script>
+</body>
+</html>
