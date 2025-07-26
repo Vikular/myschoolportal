@@ -3,55 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AXYE SCHOOL | Courses</title>
-  <link rel="stylesheet" href="courses.css">
+  <title>Courses | AXYE SCHOOL</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <script>
-  if (localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.href = "login.html"; // Redirect if not logged in
-  }
-</script>
 
+  <!-- Header/Navbar -->
   <header class="navbar">
-    <div class="logo">AXYE SCHOOL</div>
+    <a href="index.html" class="logo">
+      <img src="images/logo.JPG" alt="AXYE School Logo" />
+      <span>AXYE SCHOOL</span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
     <nav>
       <ul class="nav-links">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="courses.html" class="active">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="login.html">Logout</a></li>
+        <li><a href="#" class="logout-btn" onclick="logout()">Logout</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="container">
-    <h1>Your Courses</h1>
+  <!-- Courses Section -->
+  <main class="content">
+    <h2>Registered Courses</h2>
+    <p>Here are your current academic courses:</p>
+
     <div class="course-grid">
-
       <div class="course-card">
-        <h2>ECO101</h2>
-        <p>Introduction to Economics: Basics of demand, supply, and market systems.</p>
+        <h3>Introduction to Economics</h3>
+        <p>Course Code: ECO101</p>
+        <p>Lecturer: Dr. E. Johnson</p>
       </div>
 
       <div class="course-card">
-        <h2>MTH102</h2>
-        <p>Mathematics for Social Sciences: Algebra, calculus, and linear models.</p>
+        <h3>Mathematics for Economists</h3>
+        <p>Course Code: MTH203</p>
+        <p>Lecturer: Prof. A. Bello</p>
       </div>
 
       <div class="course-card">
-        <h2>GST111</h2>
-        <p>Use of English: Academic writing, comprehension, and grammar.</p>
+        <h3>Computer Fundamentals</h3>
+        <p>Course Code: CSC110</p>
+        <p>Lecturer: Mr. K. Dan</p>
       </div>
 
       <div class="course-card">
-        <h2>CSC105</h2>
-        <p>Introduction to Computer Applications: Word, Excel, and PowerPoint.</p>
+        <h3>Principles of Accounting</h3>
+        <p>Course Code: ACC104</p>
+        <p>Lecturer: Mrs. L. George</p>
       </div>
-
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>
