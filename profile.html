@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AXYE SCHOOL | Student Result Profile</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">AXYE SCHOOL</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container">
+    <h1>Student Academic Result Profile</h1>
+
+    <!-- Student Info -->
+    <section class="student-info">
+      <p><strong>Name:</strong> Jane Doe</p>
+      <p><strong>Reg No:</strong> AX20211001</p>
+      <p><strong>Department:</strong> Economics</p>
+      <p><strong>Level:</strong> 200</p>
+      <p><strong>Semester:</strong> First Semester</p>
+    </section>
+<section class="student-profile">
+  <div class="photo-box">
+    <img src="avatar-placeholder.png" alt="Student Photo" id="studentPhoto">
+    <input type="file" id="photoUpload" accept="image/*">
+  </div>
+  <div class="id-info">
+    <p><strong>Name:</strong> Jane Doe</p>
+    <p><strong>Reg No:</strong> AX20211001</p>
+    <p><strong>Department:</strong> Economics</p>
+    <p><strong>Level:</strong> 200</p>
+    <p><strong>Semester:</strong> First Semester</p>
+  </div>
+</section>
+
+    <!-- Result Table -->
+ <table class="results-table" id="resultsTable">
+  <thead>
+    <tr>
+      <th>Course Code</th>
+      <th>Course Title</th>
+      <th>Unit</th>
+      <th>Grade</th>
+      <th>Remark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-grade="A" data-unit="3">
+      <td>ECO201</td>
+      <td>Macroeconomics</td>
+      <td>3</td>
+      <td>A</td>
+      <td>Excellent</td>
+    </tr>
+    <tr data-grade="B" data-unit="2">
+      <td>GST211</td>
+      <td>Entrepreneurship</td>
+      <td>2</td>
+      <td>B</td>
+      <td>Very Good</td>
+    </tr>
+    <tr data-grade="C" data-unit="3">
+      <td>MTH204</td>
+      <td>Statistics</td>
+      <td>3</td>
+      <td>C</td>
+      <td>Good</td>
+    </tr>
+    <tr data-grade="B" data-unit="2">
+      <td>BUS202</td>
+      <td>Business Strategy</td>
+      <td>2</td>
+      <td>B</td>
+      <td>Very Good</td>
+    </tr>
+  </tbody>
+</table>
+
+    <!-- GPA -->
+    <div class="gpa-box">
+      <strong>GPA:</strong> <span id="gpaValue">Calculating...</span>
+    </div>
+
+    <!-- Final Remark -->
+    <div class="final-remark">
+      <strong>Final Remark:</strong> <span id="finalRemark">Loading...</span>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">🖨️ Print Result</button>
+  </main>
+
+  <script>
+    // Redirect if not logged in
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "login.html";
+    }
+
+    const gradePoints = {
+      A: 5,
+      B: 4,
+      C: 3,
+      D: 2,
+      E: 1,
+      F: 0
+    };
+
+    function calculateGPA() {
+      const rows = document.querySelectorAll("#resultsTable tbody tr");
+      let totalPoints = 0;
+      let count = 0;
+
+      rows.forEach(row => {
+        const grade = row.getAttribute("data-grade");
+        if (grade && gradePoints.hasOwnProperty(grade)) {
+          totalPoints += gradePoints[grade];
+          count++;
+        }
+      });
+
+      const gpa = count > 0 ? (totalPoints / count).toFixed(2) : "0.00";
+      document.getElementById("gpaValue").innerText = gpa;
+
+      // Final Remark
+      let remark = "Fail";
+      if (gpa >= 4.5) remark = "Distinction";
+      else if (gpa >= 3.5) remark = "Upper Credit";
+      else if (gpa >= 2.5) remark = "Lower Credit";
+      else if (gpa >= 1.5) remark = "Pass";
+      else remark = "Probation";
+
+      document.getElementById("finalRemark").innerText = remark;
+    }
+
+    calculateGPA();
+  </script>
+
+</body>
+</html>

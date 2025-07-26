@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AXYE SCHOOL | Assignment Upload</title>
+  <link rel="stylesheet" href="assignments.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">AXYE SCHOOL</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="assignments.html" class="active">Assignments</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container">
+    <h1>Submit Assignment</h1>
+    <form class="upload-form">
+      <label for="course">Select Course</label>
+      <select id="course" required>
+        <option value="">-- Choose a Course --</option>
+        <option value="ECO101">ECO101 - Introduction to Economics</option>
+        <option value="MTH102">MTH102 - Mathematics for Social Sciences</option>
+        <option value="GST111">GST111 - Use of English</option>
+      </select>
+
+      <label for="title">Assignment Title</label>
+      <input type="text" id="title" placeholder="e.g. Microeconomic Analysis" required>
+
+      <label for="file">Upload File (PDF/DOC)</label>
+      <input type="file" id="file" accept=".pdf,.doc,.docx" required>
+
+      <button type="submit">Upload Assignment</button>
+    </form>
+    <p id="message" class="success-message"></p>
+  </main>
+
+  <script>
+    document.querySelector(".upload-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const message = document.getElementById("message");
+      message.style.color = "green";
+      message.textContent = "✅ Assignment uploaded successfully (simulated)";
+    });
+  </script>
+
+</body>
+</html>
