@@ -10,9 +10,9 @@
 
   <header class="navbar">
     <div class="logo">AXYE SCHOOL</div>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav id="nav-menu">
-      <ul class="nav-links">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul class="nav-links" id="navLinks">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
@@ -29,17 +29,9 @@
   </section>
 
   <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 AXYE SCHOOL. All Rights Reserved.</p>
-      <p>Developed by <a href="https://github.com/Vikular" target="_blank">Vikular</a></p>
-    </div>
+    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById("nav-menu").classList.toggle("show");
-    }
-  </script>
-  
+  <script src="auth.js"></script>
 </body>
 </html>
