@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Header/Navbar -->
+  <!-- Navbar -->
   <header class="navbar">
     <a href="index.html" class="logo">
       <img src="images/logo.JPG" alt="AXYE School Logo" />
@@ -29,16 +29,26 @@
     </nav>
   </header>
 
-  <!-- Dashboard Section -->
+  <!-- Dashboard Main Content -->
   <main class="content">
-    <h2>Welcome to Your Dashboard</h2>
-    <p>Access your academic resources and stay updated on assignments and results.</p>
+    <h2>Welcome Back, Student!</h2>
+    <p>This is your personal dashboard where you can manage your courses, assignments, and view results.</p>
 
     <div class="dashboard-cards">
-      <a href="courses.html" class="card">📚 View Courses</a>
-      <a href="assignments.html" class="card">📝 Assignments</a>
-      <a href="results.html" class="card">📊 View Results</a>
-      <a href="#" class="card logout-card" onclick="logout()">🚪 Logout</a>
+      <a href="courses.html" class="card">
+        <h3>📚 Courses</h3>
+        <p>View and manage your enrolled courses.</p>
+      </a>
+
+      <a href="assignments.html" class="card">
+        <h3>📝 Assignments</h3>
+        <p>Check assignment submissions and deadlines.</p>
+      </a>
+
+      <a href="results.html" class="card">
+        <h3>📊 Results</h3>
+        <p>See your academic performance.</p>
+      </a>
     </div>
   </main>
 
@@ -53,5 +63,6 @@
       window.location.href = "login.html";
     }
   </script>
+
 </body>
 </html>
