@@ -7,17 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('show');
-  }
-</script>
-  <!-- Navbar -->
+
+  <!-- Header/Navbar -->
   <header class="navbar">
-    <div class="logo">AXYE SCHOOL</div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="AXYE School Logo" />
+      <span>AXYE SCHOOL</span>
+    </a>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
     <nav>
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
@@ -39,6 +39,5 @@
     <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
   </footer>
 
-  <script src="auth.js"></script>
 </body>
 </html>
