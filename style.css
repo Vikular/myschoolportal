@@ -108,3 +108,82 @@
     display: flex;
   }
 }
+/* ---------------- Login Page Styles ---------------- */
+
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #f0f4f8;
+  padding: 40px 20px;
+}
+
+.login-box {
+  background-color: #ffffff;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #004080;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #004080;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #004080;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #003366;
+}
+
+/* Optional: Responsive spacing */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .btn {
+    font-size: 15px;
+  }
+}
