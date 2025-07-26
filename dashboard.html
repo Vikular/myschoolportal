@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | AXYE SCHOOL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">AXYE SCHOOL</div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="welcome-box">
+      <h2>Welcome, <span id="username">Student</span> 👋</h2>
+      <p>This is your personalized dashboard. Check your academic info below.</p>
+    </section>
+
+    <section class="dashboard-cards">
+      <div class="card">
+        <h3>GPA</h3>
+        <p id="gpa">3.85</p>
+      </div>
+      <div class="card">
+        <h3>Courses</h3>
+        <p>8 Enrolled</p>
+      </div>
+      <div class="card">
+        <h3>Assignments</h3>
+        <p>3 Pending</p>
+      </div>
+      <div class="card">
+        <h3>Results</h3>
+        <p>View All</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script>
+    // Get stored name or fallback
+    const name = localStorage.getItem("username") || "Student";
+    document.getElementById("username").textContent = name;
+
+    // Optional GPA fetch logic
+    const gpa = localStorage.getItem("gpa");
+    if (gpa) document.getElementById("gpa").textContent = gpa;
+
+    // Logout
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
