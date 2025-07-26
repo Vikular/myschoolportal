@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="courses.css">
 </head>
 <body>
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "login.html"; // Redirect if not logged in
+  }
+</script>
 
   <header class="navbar">
     <div class="logo">AXYE SCHOOL</div>
