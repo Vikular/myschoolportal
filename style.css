@@ -1,3 +1,4 @@
+
 /* Navbar styling */
 .navbar {
   display: flex;
@@ -186,4 +187,80 @@
   .btn {
     font-size: 15px;
   }
+}
+/* Center the login section */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  padding: 20px;
+}
+
+/* Login box container */
+.login-box {
+  background-color: #fff;
+  padding: 30px 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Login title */
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #004080;
+  font-size: 24px;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs */
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Login Button */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #002f5e;
+}
+
+/* Responsive logo if shown on login page */
+.logo img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 20px;
 }
