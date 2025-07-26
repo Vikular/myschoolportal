@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
 /* Navbar styling */
 .navbar {
   display: flex;
@@ -13,41 +20,25 @@
   background-color: #003366;
   color: #fff;
   padding: 15px 30px;
-  flex-wrap: wrap;
+  position: relative;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   letter-spacing: 1px;
-}
-
-/* Hamburger menu icon */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: white;
-}
-
-/* Navigation menu */
-#nav-menu {
-  display: block;
-  width: 100%;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
 .nav-links li a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   padding: 6px 12px;
   transition: background 0.3s ease;
 }
@@ -57,7 +48,6 @@
   border-radius: 4px;
 }
 
-/* Login Button Specific Style */
 .login-btn {
   background-color: #00b894;
   color: white !important;
@@ -68,6 +58,13 @@
 
 .login-btn:hover {
   background-color: #019875;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 /* Hero Section */
@@ -103,65 +100,72 @@
   background-color: #0059b3;
 }
 
-/* Footer styling */
-.footer {
+/* Dashboard */
+.dashboard {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.welcome-box {
+  background: #e8f4ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.dashboard-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.card {
   background-color: #003366;
   color: white;
+  padding: 20px;
+  border-radius: 8px;
   text-align: center;
-  padding: 20px 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background-color: #003366;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
   margin-top: 40px;
-  font-size: 14px;
 }
 
-.footer a {
-  color: #00b894;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive rules */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  #nav-menu {
-    display: none;
-    width: 100%;
-  }
-
-  #nav-menu.show {
-    display: block;
-  }
-
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
   .nav-links {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  .nav-links li a {
-    width: 100%;
-    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
     background-color: #003366;
-    border-bottom: 1px solid #0059b3;
+    display: none;
+    padding: 20px 0;
   }
 
-  .nav-links li a:hover {
-    background-color: #0059b3;
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
   }
 
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+  .nav-links.show {
+    display: flex;
   }
 
-  .logo {
-    margin-bottom: 10px;
+  .hamburger {
+    display: block;
   }
 }
