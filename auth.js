@@ -1,4 +1,5 @@
+// Toggle the hamburger menu
 function toggleMenu() {
-  const navLinks = document.getElementById("navLinks");
-  navLinks.classList.toggle("show");
+  const nav = document.getElementById('navLinks');
+  nav.classList.toggle('show');
 }
