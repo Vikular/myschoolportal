@@ -1,34 +1,52 @@
-/* Reset */
+/* Reset and Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Typography */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
+  background-color: #f5f7fa;
 }
 
 /* Navbar */
 .navbar {
   background-color: #003366;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 12px 20px;
+  flex-wrap: wrap;
 }
 
 .logo {
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
   font-weight: bold;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+nav {
+  display: flex;
 }
 
 .nav-links {
@@ -40,182 +58,86 @@ body {
 .nav-links li a {
   color: white;
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 4px;
-  transition: background 0.3s ease;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  background-color: #0059b3;
+  color: #00b894;
 }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: white;
-}
-
-.show {
-  display: flex !important;
-  flex-direction: column;
-  background-color: #003366;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  width: 100%;
+.login-btn {
+  background-color: #00b894;
+  padding: 6px 14px;
+  border-radius: 4px;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
 }
 
 .hero h1 {
   font-size: 36px;
   color: #003366;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 25px;
-  color: #555;
+  color: #333;
+  margin-bottom: 30px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #003366;
-  color: #fff;
-  border-radius: 5px;
+  padding: 12px 24px;
+  background-color: #003366;
+  color: white;
   text-decoration: none;
+  border-radius: 6px;
   font-weight: bold;
-  transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #0059b3;
-}
-
-/* Login Page */
-.login-container {
-  max-width: 400px;
-  margin: 80px auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.login-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.login-container label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-}
-
-.login-container input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.login-container button {
-  width: 100%;
-  background: #003366;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.login-container button:hover {
-  background: #0059b3;
-}
-
-/* Dashboard */
-.dashboard-container {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.dashboard-container h2 {
-  margin-bottom: 40px;
-  color: #003366;
-}
-
-.dashboard-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  padding: 0 10px;
-}
-
-.card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  color: #003366;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #555;
-  margin-bottom: 15px;
+  background-color: #0059b3;
 }
 
 /* Footer */
 .footer {
-  background: #003366;
+  background-color: #003366;
   color: white;
   text-align: center;
-  padding: 16px;
-  margin-top: 60px;
+  padding: 15px;
+  margin-top: 50px;
+  font-size: 14px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav {
+    width: 100%;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    text-align: center;
+    background-color: #003366;
+    padding: 10px 0;
+  }
+
+  #menu-toggle:checked + .menu-icon + nav .nav-links {
+    display: flex;
   }
 
   .nav-links li {
+    text-align: center;
     margin: 10px 0;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .dashboard-cards {
-    grid-template-columns: 1fr;
   }
 }
