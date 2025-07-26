@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Header/Navbar -->
+  <!-- Navbar -->
   <header class="navbar">
     <a href="index.html" class="logo">
       <img src="images/logo.JPG" alt="AXYE School Logo" />
@@ -24,14 +24,15 @@
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html" class="active">Results</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
+        <li><a href="#" class="logout-btn" onclick="logout()">Logout</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Results Section -->
   <main class="content">
-    <h2>My Results</h2>
+    <h2>Academic Results</h2>
+    <p>View your semester results below:</p>
 
     <div class="results-table">
       <table>
@@ -39,24 +40,29 @@
           <tr>
             <th>Course</th>
             <th>Grade</th>
-            <th>Remarks</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mathematics</td>
-            <td class="grade green">A</td>
-            <td>Excellent</td>
+            <td>Mathematics 101</td>
+            <td class="grade grade-A">A</td>
+            <td>Passed</td>
           </tr>
           <tr>
-            <td>English</td>
-            <td class="grade blue">B</td>
-            <td>Good</td>
+            <td>Economics 102</td>
+            <td class="grade grade-B">B</td>
+            <td>Passed</td>
           </tr>
           <tr>
-            <td>Biology</td>
-            <td class="grade gray">C</td>
-            <td>Fair</td>
+            <td>Computer Science 103</td>
+            <td class="grade grade-C">C</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>Accounting 104</td>
+            <td class="grade grade-F">F</td>
+            <td>Failed</td>
           </tr>
         </tbody>
       </table>
@@ -67,6 +73,13 @@
   <footer class="footer">
     <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
   </footer>
+
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
 
 </body>
 </html>
