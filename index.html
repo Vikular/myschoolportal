@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AXYE SCHOOL | Student Portal</title>
+  <title>AXYE SCHOOL | Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <!-- Header/Navbar -->
   <header class="navbar">
     <a href="index.html" class="logo">
@@ -15,7 +14,7 @@
       <span>AXYE SCHOOL</span>
     </a>
 
-    <input type="checkbox" id="menu-toggle" />
+    <input type="checkbox" id="menu-toggle" hidden />
     <label for="menu-toggle" class="menu-icon">&#9776;</label>
 
     <nav>
@@ -24,7 +23,7 @@
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li id="loginNav"><a href="login.html" class="login-btn">Login</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -40,14 +39,5 @@
   <footer class="footer">
     <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
   </footer>
-
-  <!-- JavaScript: Hide login if already logged in -->
-  <script>
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn === 'true') {
-      document.getElementById('loginNav').style.display = 'none';
-    }
-  </script>
-
 </body>
 </html>
