@@ -3,27 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AXYE SCHOOL | Login</title>
-  <link rel="stylesheet" href="login.css">
+  <title>Login - AXYE School</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <div class="login-container">
-    <h1 class="school-name">AXYE SCHOOL</h1>
-    <div class="login-box">
-      <h2>Student Login</h2>
-      <form action="dashboard.html" method="GET">
-        <label for="email">Email or Username</label>
-        <input type="text" id="email" name="email" required>
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit">Login</button>
-      </form>
-      <p class="note">Don't have an account? <a href="#">Contact Admin</a></p>
-    </div>
+    <h2>Student Login</h2>
+    <form onsubmit="return loginUser(event)">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+      <p id="login-error" style="color: red; display: none;">Invalid username or password</p>
+    </form>
   </div>
 
+  <script src="auth.js"></script>
 </body>
 </html>
