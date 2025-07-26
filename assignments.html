@@ -1,58 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AXYE SCHOOL | Assignment Upload</title>
-  <link rel="stylesheet" href="assignments.css">
-</head>
-<body>
+.assignment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">AXYE SCHOOL</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="assignments.html" class="active">Assignments</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="login.html">Logout</a></li>
-      </ul>
-    </nav>
-  </header>
+.assignment-form label {
+  font-weight: 600;
+}
 
-  <!-- Page Content -->
-  <main class="container">
-    <h1>Submit Assignment</h1>
-    <form class="upload-form">
-      <label for="course">Select Course</label>
-      <select id="course" required>
-        <option value="">-- Choose a Course --</option>
-        <option value="ECO101">ECO101 - Introduction to Economics</option>
-        <option value="MTH102">MTH102 - Mathematics for Social Sciences</option>
-        <option value="GST111">GST111 - Use of English</option>
-      </select>
+.assignment-form input,
+.assignment-form select,
+.assignment-form button {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
-      <label for="title">Assignment Title</label>
-      <input type="text" id="title" placeholder="e.g. Microeconomic Analysis" required>
+.assignment-form button {
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
 
-      <label for="file">Upload File (PDF/DOC)</label>
-      <input type="file" id="file" accept=".pdf,.doc,.docx" required>
+.assignment-form button:hover {
+  background-color: #004999;
+}
 
-      <button type="submit">Upload Assignment</button>
-    </form>
-    <p id="message" class="success-message"></p>
-  </main>
+.assignment-status {
+  margin-top: 40px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-inline: auto;
+}
 
-  <script>
-    document.querySelector(".upload-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const message = document.getElementById("message");
-      message.style.color = "green";
-      message.textContent = "✅ Assignment uploaded successfully (simulated)";
-    });
-  </script>
+.assignment-status ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-</body>
-</html>
+.assignment-status li {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-left: 4px solid #0077cc;
+}
