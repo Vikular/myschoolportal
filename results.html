@@ -3,77 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AXYE SCHOOL | Results</title>
-  <link rel="stylesheet" href="results.css">
+  <title>Results | AXYE SCHOOL</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Header/Navbar -->
   <header class="navbar">
-    <div class="logo">AXYE SCHOOL</div>
+    <a href="index.html" class="logo">
+      <img src="images/logo.JPG" alt="AXYE School Logo" />
+      <span>AXYE SCHOOL</span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
     <nav>
       <ul class="nav-links">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html" class="active">Results</a></li>
-        <li><a href="#" onclick="logout()">Logout</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Page Content -->
-  <main class="container">
-    <h1>Academic Results</h1>
-    <table class="results-table">
-      <thead>
-        <tr>
-          <th>Course Code</th>
-          <th>Course Title</th>
-          <th>Grade</th>
-          <th>Remark</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>ECO101</td>
-          <td>Introduction to Economics</td>
-          <td>A</td>
-          <td>Excellent</td>
-        </tr>
-        <tr>
-          <td>MTH102</td>
-          <td>Mathematics for Social Sciences</td>
-          <td>B</td>
-          <td>Very Good</td>
-        </tr>
-        <tr>
-          <td>GST111</td>
-          <td>Use of English</td>
-          <td>C</td>
-          <td>Good</td>
-        </tr>
-        <tr>
-          <td>BUS103</td>
-          <td>Principles of Business</td>
-          <td>B</td>
-          <td>Very Good</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Results Section -->
+  <main class="content">
+    <h2>My Results</h2>
+
+    <div class="results-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Grade</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mathematics</td>
+            <td class="grade green">A</td>
+            <td>Excellent</td>
+          </tr>
+          <tr>
+            <td>English</td>
+            <td class="grade blue">B</td>
+            <td>Good</td>
+          </tr>
+          <tr>
+            <td>Biology</td>
+            <td class="grade gray">C</td>
+            <td>Fair</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
 
-  <!-- Authentication and Logout Script -->
-  <script>
-    if (localStorage.getItem("isLoggedIn") !== "true") {
-      window.location.href = "login.html";
-    }
-
-    function logout() {
-      localStorage.removeItem("isLoggedIn");
-      window.location.href = "login.html";
-    }
-  </script>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
