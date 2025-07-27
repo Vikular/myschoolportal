@@ -1,13 +1,15 @@
+/* Responsive styles */
+
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
     flex-direction: column;
-    background: #fff;
+    display: none;
+    background: var(--header-bg);
     position: absolute;
-    top: 60px;
+    top: 100%;
     right: 0;
-    width: 200px;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 1rem;
   }
 
   .nav-links.active {
@@ -18,11 +20,16 @@
     display: block;
   }
 
-  .hero h1 {
-    font-size: 1.8em;
+  .hero {
+    padding: 3rem 1rem;
   }
 
   .cta-buttons {
     flex-direction: column;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    margin: 10px 0;
   }
 }
