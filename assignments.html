@@ -1,55 +1,63 @@
-.assignment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assignments - School Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="assignments.html" class="active">Assignments</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><button id="logoutBtn" class="btn logout-btn">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
 
-.assignment-form label {
-  font-weight: 600;
-}
+  <main class="dashboard-content">
+    <h2>My Assignments</h2>
+    <p>Welcome, <span id="userName"></span>. View and submit your assignments below:</p>
 
-.assignment-form input,
-.assignment-form select,
-.assignment-form button {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
+    <section class="assignment-list">
+      <ul>
+        <li>
+          <strong>Assignment 1:</strong> Write an essay on economic development.  
+          <button class="btn">Submit</button>
+        </li>
+        <li>
+          <strong>Assignment 2:</strong> Solve the attached math problems.  
+          <button class="btn">Submit</button>
+        </li>
+        <!-- Add more dynamically or with backend later -->
+      </ul>
+    </section>
+  </main>
 
-.assignment-form button {
-  background-color: #0066cc;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
+  </footer>
 
-.assignment-form button:hover {
-  background-color: #004999;
-}
+  <script>
+    // Protect page
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = loggedInUser.name || "Student";
+    }
 
-.assignment-status {
-  margin-top: 40px;
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin-inline: auto;
-}
-
-.assignment-status ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.assignment-status li {
-  margin-bottom: 10px;
-  padding-left: 10px;
-  border-left: 4px solid #0077cc;
-}
+    // Logout logic
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedInUser");
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
