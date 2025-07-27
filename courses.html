@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Header/Navbar -->
   <header class="navbar">
     <a href="index.html" class="logo">
       <img src="images/logo.JPG" alt="AXYE School Logo" />
@@ -24,32 +24,30 @@
         <li><a href="courses.html" class="active">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="#" class="logout-btn" onclick="logout()">Logout</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Courses Content -->
-  <main class="content">
-    <h2>My Courses</h2>
-    <p>Browse your enrolled courses and access materials.</p>
-
-    <div class="dashboard-cards">
+  <!-- Courses Section -->
+  <main class="container">
+    <h1>Available Courses</h1>
+    <div class="card-grid">
       <div class="card">
-        <h3>Mathematics</h3>
-        <p>Advanced Algebra and Calculus</p>
+        <h2>Mathematics</h2>
+        <p>Explore core topics including algebra, calculus, and geometry.</p>
       </div>
       <div class="card">
-        <h3>English</h3>
-        <p>Grammar, Writing, and Literature</p>
+        <h2>English</h2>
+        <p>Improve your grammar, writing skills, and literature appreciation.</p>
       </div>
       <div class="card">
-        <h3>Computer Science</h3>
-        <p>Web Development, Programming & Systems</p>
+        <h2>Economics</h2>
+        <p>Understand micro and macroeconomic principles and applications.</p>
       </div>
       <div class="card">
-        <h3>Economics</h3>
-        <p>Microeconomics and Macroeconomics</p>
+        <h2>Computer Science</h2>
+        <p>Learn programming, databases, and software development basics.</p>
       </div>
     </div>
   </main>
@@ -58,13 +56,6 @@
   <footer class="footer">
     <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
   </footer>
-
-  <script>
-    function logout() {
-      alert("You have been logged out.");
-      window.location.href = "login.html";
-    }
-  </script>
 
 </body>
 </html>
