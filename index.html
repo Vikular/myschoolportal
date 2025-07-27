@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Global Uni – Empowering Education, Globally." />
+  <meta name="keywords" content="university, education, courses, global uni, student portal" />
+  <meta name="author" content="Global Uni" />
+  <meta property="og:title" content="Global Uni – Empowering Education, Globally" />
+  <meta property="og:description" content="Your gateway to quality education and student success." />
+  <meta property="og:image" content="assets/images/preview.png" />
+  <meta property="og:type" content="website" />
   <title>Global Uni</title>
   <link rel="icon" href="assets/images/favicon.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
@@ -12,6 +18,7 @@
   <link rel="stylesheet" href="assets/css/dark-mode.css" />
 </head>
 <body>
+  <!-- Header / Navigation -->
   <header class="main-header">
     <nav class="navbar">
       <div class="logo">Global Uni</div>
@@ -22,28 +29,44 @@
         <li><a href="#">Courses</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle">🌓</button>
-      <div class="mobile-toggle" onclick="toggleMobileNav()">☰</div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌓</button>
+      <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</div>
     </nav>
     <div class="announcement-banner" id="announcementBanner">🎓 Welcome to Global Uni Portal!</div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Empowering Education, Globally</h1>
-    <p>Your gateway to quality education and student success</p>
+    <p>Your gateway to quality education and student success.</p>
     <div class="cta-buttons">
       <a href="register.html" class="btn">Get Started</a>
       <a href="login.html" class="btn secondary">Log In</a>
     </div>
   </section>
 
-  <!-- Sections: Why Choose Us, Programs, Testimonials, Events, Virtual Tour, Newsletter, Help Desk, App Promo, etc. -->
-  <!-- Content loaded dynamically or added below here in modular structure -->
+  <!-- Additional Sections (to be modularly added) -->
+  <!-- 
+    Sections like:
+    - Why Choose Us
+    - Popular Programs
+    - Testimonials
+    - News & Events
+    - Virtual Tour
+    - Partner Institutions
+    - Newsletter Signup
+    - Help Desk / Live Chat
+    - Mobile App Promo
+    - Contact
+    will be appended here as <section> blocks or templates.
+  -->
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Global Uni. All rights reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
