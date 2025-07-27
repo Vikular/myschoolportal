@@ -1,35 +1,36 @@
-// Static dataset
+// Mock data
 const courses = {
- 1: { title: "Physics BSc", desc: "Study matter & energy." },
- 2: { title: "Graphic Design BA", desc: "Visual creativity & tools." },
- 3: { title: "Business Admin", desc: "Leadership, marketing, finance." }
+  1: { title: "Physics BSc", desc: "Study matter & energy in depth." },
+  2: { title: "Graphic Design BA", desc: "Visual creativity, digital tools & UX." },
+  3: { title: "Business Admin", desc: "Leadership, marketing & finance essentials." }
 };
 const userSchedule = [
   { time: "09:00 AM", course: "Physics BSc", room: "R101" },
   { time: "11:00 AM", course: "Business Admin", room: "R202" }
 ];
 
-// Preloader hide
+// Page ready
 window.addEventListener('load', () => {
-  const p = document.getElementById('preloader');
-  if(p) p.style.display='none';
+  document.getElementById('preloader')?.remove();
+  renderSchedule();
 });
 
-// Login UI
+// Login modal behavior
 const loginBtn = document.getElementById('loginBtn'),
       loginModal = document.getElementById('loginModal'),
-      userBadge = document.getElementById('userBadge');
+      userBadge = document.getElementById('userBadge'),
+      loginForm = document.getElementById('loginForm');
 loginBtn.onclick = () => loginModal.classList.remove('hidden');
 loginModal.querySelector('.close').onclick = () => loginModal.classList.add('hidden');
-document.getElementById('loginSubmit').onclick = () => {
-  const u = document.getElementById('username').value || "Student";
-  document.getElementById('userName').textContent = u;
+loginForm.onsubmit = () => {
+  const user = document.getElementById('username').value || "Student";
+  document.getElementById('userName').textContent = user;
   userBadge.classList.remove('hidden');
   loginBtn.classList.add('hidden');
   loginModal.classList.add('hidden');
 };
 
-// Course modal
+// Course details modal
 const courseModal = document.getElementById('courseModal');
 courseModal.querySelector('.close').onclick = () => courseModal.classList.add('hidden');
 document.querySelectorAll('.course-card').forEach(card => {
@@ -41,20 +42,22 @@ document.querySelectorAll('.course-card').forEach(card => {
   };
 });
 
-// Render schedule
+// Render schedule table
 function renderSchedule() {
-  const body = document.getElementById('scheduleBody');
-  body.innerHTML = userSchedule.map(i => `<tr><td>${i.time}</td><td>${i.course}</td><td>${i.room}</td></tr>`).join('');
+  const tbody = document.getElementById('scheduleBody');
+  tbody.innerHTML = userSchedule.map(x =>
+    `<tr><td>${x.time}</td><td>${x.course}</td><td>${x.room}</td></tr>`
+  ).join('');
 }
-renderSchedule();
 
 // Search autocomplete
 const searchInput = document.getElementById('searchInput'),
       acList = document.getElementById('autocompleteList');
 searchInput.addEventListener('input', () => {
-  const v = searchInput.value.toLowerCase(), matches = Object.values(courses).filter(c => c.title.toLowerCase().includes(v));
+  const val = searchInput.value.toLowerCase();
   acList.innerHTML = '';
-  if(!v || !matches.length) return acList.classList.add('hidden');
+  const matches = Object.values(courses).filter(c => c.title.toLowerCase().includes(val));
+  if (!val || matches.length === 0) return acList.classList.add('hidden');
   matches.forEach(c => {
     const li = document.createElement('li');
     li.textContent = c.title;
@@ -66,10 +69,12 @@ searchInput.addEventListener('input', () => {
   });
   acList.classList.remove('hidden');
 });
-searchInput.addEventListener('blur', () => setTimeout(() => acList.classList.add('hidden'),150));
-
-// Menu toggle mobile
-document.getElementById('menuToggle').onclick = () => document.getElementById('mainNav').classList.toggle('open');
+searchInput.addEventListener('blur', () => setTimeout(() => acList.classList.add('hidden'), 150));
 
 // Chat toggle
-document.getElementById('chatToggle').onclick = () => document.getElementById('chatBox').classList.toggle('hidden');
+document.getElementById('chatToggle').onclick = () =>
+  document.getElementById('chatBox').classList.toggle('hidden');
+
+// Mobile nav toggle
+document.getElementById('menuToggle').onclick = () =>
+  document.getElementById('mainNav').classList.toggle('open');
