@@ -3,45 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login | AXYE SCHOOL</title>
+  <title>Student Login - School Portal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Header/Navbar -->
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/logo.JPG" alt="AXYE School Logo" />
-      <span>AXYE SCHOOL</span>
-    </a>
+  <header>
+    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
     <nav>
-      <ul class="nav-links">
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="assignments.html">Assignments</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html" class="active">Login</a></li>
+        <li><a href="register.html">Register</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Login Form -->
-  <main class="login-page">
-    <div class="login-container">
-      <img src="images/logo.JPG" alt="AXYE Logo" class="login-logo" />
-      <h2>Student Login</h2>
-      <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required />
-        <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-        <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
-      </form>
-    </div>
+  <main class="login-container">
+    <h2>Student Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Email or Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+
+      <div class="login-links">
+        <a href="forgot-password.html">Forgot Password?</a>
+        <a href="register.html">Create Account</a>
+      </div>
+    </form>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
   </footer>
 
   <script src="login.js"></script>
