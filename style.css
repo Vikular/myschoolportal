@@ -7,65 +7,83 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
   background-color: #f9f9f9;
-  color: #333;
+  color: #222;
+  line-height: 1.6;
 }
 
-/* Header & Navigation */
-header {
+/* Header */
+.header {
   background-color: #004080;
   color: #fff;
-  padding: 10px 0;
+  padding: 10px 20px;
+  text-align: center;
 }
 
-.header-container {
+.logo-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 0 20px;
+  gap: 10px;
 }
 
 .logo {
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.school-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Address */
+.school-address {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Nav menu */
+.navbar {
+  margin-top: 10px;
+  overflow-x: auto;
 }
 
 .nav-menu {
+  list-style: none;
   display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
+  justify-content: center;
   gap: 15px;
+  flex-wrap: nowrap;
+  padding: 10px 0;
+  overflow-x: auto;
 }
 
-.nav-menu a {
+.nav-menu li a {
   color: #fff;
   text-decoration: none;
-  padding: 10px 15px;
-  transition: background 0.3s;
-  border-radius: 5px;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: background 0.3s ease;
+  white-space: nowrap;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-  background-color: #0066cc;
-}
-
-/* Address Bar */
-.address-bar {
-  text-align: center;
+.nav-menu li a:hover,
+.nav-menu li a.active {
   background-color: #003366;
-  color: #ccc;
-  padding: 5px 10px;
-  font-size: 14px;
+  border-radius: 5px;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(to right, #004080, #0073e6);
-  color: white;
-  padding: 60px 20px;
   text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #004080, #0059b3);
+  color: #fff;
 }
 
 .hero h1 {
@@ -79,92 +97,108 @@ header {
 }
 
 .hero .btn {
-  background-color: #fff;
+  background: #fff;
   color: #004080;
   padding: 10px 25px;
-  text-decoration: none;
-  font-weight: bold;
   border-radius: 5px;
-  transition: background 0.3s;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
 .hero .btn:hover {
-  background-color: #e0e0e0;
+  background: #e6e6e6;
 }
 
-/* Sections */
-section {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
+/* Section Headings */
 section h2 {
+  text-align: center;
+  margin: 40px 0 20px;
   font-size: 1.8rem;
-  margin-bottom: 20px;
   color: #004080;
 }
 
-/* News Section */
-.news-section ul {
-  list-style-type: none;
-  padding-left: 0;
+/* News & Events */
+.news-list {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.news-section li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
+.news-list li {
+  background: #eef6ff;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-left: 5px solid #004080;
+  font-weight: 500;
 }
 
-/* Courses Section */
-.course-list {
-  display: flex;
-  flex-wrap: wrap;
+/* Courses Offered */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .course-card {
-  flex: 1 1 150px;
-  background-color: #ffffff;
-  padding: 15px;
-  border: 1px solid #ccc;
+  background: #ffffff;
+  padding: 20px;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  font-weight: 600;
 }
 
-/* Staff Section */
-.staff-list {
+/* Staff Cards */
+.staff-grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+  padding: 20px;
 }
 
 .staff-card {
-  flex: 1 1 200px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  text-align: center;
+  background: #fff;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
+  width: 140px;
+  text-align: center;
   cursor: pointer;
-  transition: box-shadow 0.3s;
-}
-
-.staff-card:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+  border: 1px solid #ccc;
 }
 
 .staff-card img {
   width: 100%;
-  height: 180px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .staff-card p {
   font-weight: bold;
-  margin-top: 10px;
+  color: #004080;
+}
+
+.staff-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #004080;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
 }
 
 /* Modal */
@@ -172,56 +206,50 @@ section h2 {
   display: none;
   position: fixed;
   z-index: 999;
+  padding-top: 100px;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto;
-  padding: 30px;
+  margin: auto;
+  padding: 20px;
   width: 90%;
   max-width: 400px;
   border-radius: 10px;
-  position: relative;
   text-align: center;
+  position: relative;
 }
 
-.close {
+.close-btn {
+  color: #aaa;
+  font-size: 24px;
   position: absolute;
   top: 10px; right: 15px;
-  font-size: 24px;
   cursor: pointer;
 }
 
-/* Footer */
-footer {
-  background-color: #004080;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  margin-top: 40px;
+.close-btn:hover {
+  color: #000;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Responsive Adjustments */
+@media (max-width: 600px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .hero p {
     font-size: 1rem;
   }
 
-  .course-list,
-  .staff-list {
-    flex-direction: column;
-    align-items: center;
+  .school-name {
+    font-size: 1.4rem;
   }
 
-  .nav-menu {
-    justify-content: center;
+  .course-card {
+    font-size: 0.9rem;
   }
 }
