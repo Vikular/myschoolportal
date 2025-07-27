@@ -1,0 +1,69 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Global Uni</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/dark-mode.css" />
+  <link rel="icon" href="assets/img/favicon.png" />
+</head>
+
+<body>
+  <div id="preloader"></div>
+  <header class="navbar">
+    <div class="nav-start">
+      <button id="menuToggle" aria-label="Toggle menu">☰</button>
+      <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
+      <h1 class="site-title">Global Uni</h1>
+    </div>
+    <nav id="mainNav" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="auth-block">
+      <button id="loginBtn">Login</button>
+      <div class="theme-switch">
+        <label class="toggle-container">
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider"></span> 🌙
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>About Global Uni</h2>
+      <p>We are dedicated to transforming global education through technology and accessibility.</p>
+    </section>
+
+    <section class="content">
+      <h3>Our Mission</h3>
+      <p>To empower learners around the world with high-quality, flexible, and inclusive education through innovative technology and international partnerships.</p>
+
+      <h3>Core Values</h3>
+      <ul>
+        <li>🌍 Inclusivity & Diversity</li>
+        <li>📚 Academic Excellence</li>
+        <li>🤝 Collaboration</li>
+        <li>🔬 Research & Innovation</li>
+      </ul>
+
+      <h3>Our Global Reach</h3>
+      <p>With over 75 partner institutions, Global Uni supports thousands of students across more than 50 countries.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Global Uni. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>
