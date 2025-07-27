@@ -3,83 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Results | AXYE SCHOOL</title>
+  <title>Results - School Portal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/logo.JPG" alt="AXYE School Logo" />
-      <span>AXYE SCHOOL</span>
-    </a>
-
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
+  <header>
+    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-menu">
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html" class="active">Results</a></li>
-        <li><a href="#" class="logout-btn" onclick="logout()">Logout</a></li>
+        <li><button id="logoutBtn" class="btn logout-btn">Logout</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Results Section -->
-  <main class="content">
-    <h2>Academic Results</h2>
-    <p>View your semester results below:</p>
+  <main class="dashboard-content">
+    <h2>Exam Results</h2>
+    <p>Welcome, <span id="userName"></span>. Here are your latest academic results:</p>
 
-    <div class="results-table">
+    <section class="results-table">
       <table>
         <thead>
           <tr>
             <th>Course</th>
             <th>Grade</th>
-            <th>Status</th>
+            <th>Remarks</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Mathematics 101</td>
-            <td class="grade grade-A">A</td>
-            <td>Passed</td>
+            <td>Mathematics</td>
+            <td class="grade green">A</td>
+            <td>Excellent</td>
           </tr>
           <tr>
-            <td>Economics 102</td>
-            <td class="grade grade-B">B</td>
-            <td>Passed</td>
+            <td>English</td>
+            <td class="grade blue">B</td>
+            <td>Good</td>
           </tr>
           <tr>
-            <td>Computer Science 103</td>
-            <td class="grade grade-C">C</td>
-            <td>Passed</td>
+            <td>Economics</td>
+            <td class="grade gray">C</td>
+            <td>Fair</td>
           </tr>
-          <tr>
-            <td>Accounting 104</td>
-            <td class="grade grade-F">F</td>
-            <td>Failed</td>
-          </tr>
+          <!-- Add more rows or connect to backend -->
         </tbody>
       </table>
-    </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
   </footer>
 
   <script>
-    function logout() {
+    // Protect page from unauthenticated access
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = loggedInUser.name || "Student";
+    }
+
+    // Logout logic
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedInUser");
       alert("You have been logged out.");
       window.location.href = "login.html";
-    }
+    });
   </script>
-
 </body>
 </html>
