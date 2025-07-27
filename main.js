@@ -1,53 +1,75 @@
-// Load persisted state on load
+// Static dataset
+const courses = {
+ 1: { title: "Physics BSc", desc: "Study matter & energy." },
+ 2: { title: "Graphic Design BA", desc: "Visual creativity & tools." },
+ 3: { title: "Business Admin", desc: "Leadership, marketing, finance." }
+};
+const userSchedule = [
+  { time: "09:00 AM", course: "Physics BSc", room: "R101" },
+  { time: "11:00 AM", course: "Business Admin", room: "R202" }
+];
+
+// Preloader hide
 window.addEventListener('load', () => {
-  // Theme
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
-  // Language
-  const lang = localStorage.getItem('lang') || 'en';
-  document.getElementById('languageSelector').value = lang;
-  document.querySelectorAll('[data-lang-en]').forEach(el => {
-    const txt = el.getAttribute(`data-lang-${lang}`);
-    if (txt) el.textContent = txt;
-  });
-  // Course filter
-  const cat = localStorage.getItem('courseFilter');
-  if (cat) applyFilter(cat);
+  const p = document.getElementById('preloader');
+  if(p) p.style.display='none';
 });
 
-// Theme toggle with persistence
-document.getElementById('themeToggle')?.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+// Login UI
+const loginBtn = document.getElementById('loginBtn'),
+      loginModal = document.getElementById('loginModal'),
+      userBadge = document.getElementById('userBadge');
+loginBtn.onclick = () => loginModal.classList.remove('hidden');
+loginModal.querySelector('.close').onclick = () => loginModal.classList.add('hidden');
+document.getElementById('loginSubmit').onclick = () => {
+  const u = document.getElementById('username').value || "Student";
+  document.getElementById('userName').textContent = u;
+  userBadge.classList.remove('hidden');
+  loginBtn.classList.add('hidden');
+  loginModal.classList.add('hidden');
+};
+
+// Course modal
+const courseModal = document.getElementById('courseModal');
+courseModal.querySelector('.close').onclick = () => courseModal.classList.add('hidden');
+document.querySelectorAll('.course-card').forEach(card => {
+  card.onclick = () => {
+    const info = courses[card.dataset.id];
+    document.getElementById('courseTitle').textContent = info.title;
+    document.getElementById('courseDesc').textContent = info.desc;
+    courseModal.classList.remove('hidden');
+  };
 });
 
-// Language selector with persistence
-document.getElementById('languageSelector')?.addEventListener('change', e => {
-  const lang = e.target.value;
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('[data-lang-en]').forEach(el => {
-    const txt = el.getAttribute(`data-lang-${lang}`);
-    if (txt) el.textContent = txt;
-  });
-});
-
-// Course filter with persistence
-function applyFilter(cat) {
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.classList.toggle('active', b.getAttribute('data-filter') === cat);
-  });
-  document.querySelectorAll('.course-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.getAttribute('data-category') === cat) ? 'block' : 'none';
-  });
+// Render schedule
+function renderSchedule() {
+  const body = document.getElementById('scheduleBody');
+  body.innerHTML = userSchedule.map(i => `<tr><td>${i.time}</td><td>${i.course}</td><td>${i.room}</td></tr>`).join('');
 }
-document.querySelectorAll('.filter-btn').forEach(btn =>
-  btn.addEventListener('click', () => {
-    const cat = btn.getAttribute('data-filter');
-    localStorage.setItem('courseFilter', cat);
-    applyFilter(cat);
-  })
-);
+renderSchedule();
 
-// News auto-scroll, calendar, newsletter, live chat, SW registration remain as-is...
-// ...
+// Search autocomplete
+const searchInput = document.getElementById('searchInput'),
+      acList = document.getElementById('autocompleteList');
+searchInput.addEventListener('input', () => {
+  const v = searchInput.value.toLowerCase(), matches = Object.values(courses).filter(c => c.title.toLowerCase().includes(v));
+  acList.innerHTML = '';
+  if(!v || !matches.length) return acList.classList.add('hidden');
+  matches.forEach(c => {
+    const li = document.createElement('li');
+    li.textContent = c.title;
+    li.onclick = () => {
+      searchInput.value = c.title;
+      acList.classList.add('hidden');
+    };
+    acList.appendChild(li);
+  });
+  acList.classList.remove('hidden');
+});
+searchInput.addEventListener('blur', () => setTimeout(() => acList.classList.add('hidden'),150));
+
+// Menu toggle mobile
+document.getElementById('menuToggle').onclick = () => document.getElementById('mainNav').classList.toggle('open');
+
+// Chat toggle
+document.getElementById('chatToggle').onclick = () => document.getElementById('chatBox').classList.toggle('hidden');
