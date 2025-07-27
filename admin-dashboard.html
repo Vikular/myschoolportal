@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard | AXYE School</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="auth.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo.JPG" alt="AXYE School Logo" />
+      <span>AXYE SCHOOL</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Student Dashboard</a></li>
+      <li><a href="admin-dashboard.html" class="active">Admin Panel</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><button id="logoutBtn" class="logout-btn">Logout</button></li>
+    </ul>
+  </header>
+
+  <!-- Admin Main Section -->
+  <main class="admin-dashboard">
+    <h1>Welcome, Admin</h1>
+
+    <!-- Student Management Section -->
+    <section class="admin-section">
+      <h2>Manage Students</h2>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Username</th>
+            <th>Level</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="studentList">
+          <!-- Populated by admin.js -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Post Announcement Section -->
+    <section class="admin-section">
+      <h2>Post Announcement</h2>
+      <form id="announcementForm">
+        <textarea placeholder="Write announcement..." required></textarea>
+        <button type="submit" class="btn">Post</button>
+      </form>
+    </section>
+
+    <!-- Upload Materials -->
+    <section class="admin-section">
+      <h2>Upload Materials</h2>
+      <form id="uploadForm">
+        <input type="file" />
+        <button type="submit" class="btn">Upload</button>
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>
