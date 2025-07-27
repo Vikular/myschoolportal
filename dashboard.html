@@ -3,66 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard | AXYE SCHOOL</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navbar -->
   <header class="navbar">
     <a href="index.html" class="logo">
-      <img src="images/logo.JPG" alt="AXYE School Logo" />
+      <img src="images/logo.JPG" alt="AXYE Logo" />
       <span>AXYE SCHOOL</span>
     </a>
-
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
     <nav>
       <ul class="nav-links">
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="#" class="logout-btn" onclick="logout()">Logout</a></li>
+        <li><a href="#" onclick="logout()" class="logout-btn">Logout</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Dashboard Main Content -->
-  <main class="content">
-    <h2>Welcome Back, Student!</h2>
-    <p>This is your personal dashboard where you can manage your courses, assignments, and view results.</p>
-
-    <div class="dashboard-cards">
-      <a href="courses.html" class="card">
-        <h3>📚 Courses</h3>
-        <p>View and manage your enrolled courses.</p>
-      </a>
-
-      <a href="assignments.html" class="card">
-        <h3>📝 Assignments</h3>
-        <p>Check assignment submissions and deadlines.</p>
-      </a>
-
-      <a href="results.html" class="card">
-        <h3>📊 Results</h3>
-        <p>See your academic performance.</p>
-      </a>
-    </div>
+  <main class="dashboard-content">
+    <h1>Welcome to Your Dashboard</h1>
+    <p>Use the navigation menu to access your school resources.</p>
   </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
-  </footer>
 
   <script>
     function logout() {
-      alert("You have been logged out.");
+      localStorage.removeItem("loggedIn");
       window.location.href = "login.html";
     }
   </script>
-
 </body>
 </html>
