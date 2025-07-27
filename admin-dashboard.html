@@ -3,68 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard | AXYE School</title>
+  <title>Admin Dashboard - School Portal</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="auth.js"></script>
-  <script defer src="admin.js"></script>
 </head>
 <body>
-
-  <!-- Navigation -->
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/logo.JPG" alt="AXYE School Logo" />
-      <span>AXYE SCHOOL</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="dashboard.html">Student Dashboard</a></li>
-      <li><a href="admin-dashboard.html" class="active">Admin Panel</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="results.html">Results</a></li>
-      <li><button id="logoutBtn" class="logout-btn">Logout</button></li>
-    </ul>
+  <header>
+    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="admin-dashboard.html" class="active">Admin Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><button id="logoutBtn" class="btn logout-btn">Logout</button></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Admin Main Section -->
-  <main class="admin-dashboard">
-    <h1>Welcome, Admin</h1>
+  <main class="dashboard-content">
+    <h2>Welcome, Admin</h2>
+    <p>Select a student to edit their profile:</p>
 
-    <!-- Student Management Section -->
-    <section class="admin-section">
-      <h2>Manage Students</h2>
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>Student Name</th>
-            <th>Username</th>
-            <th>Level</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="studentList">
-          <!-- Populated by admin.js -->
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Post Announcement Section -->
-    <section class="admin-section">
-      <h2>Post Announcement</h2>
-      <form id="announcementForm">
-        <textarea placeholder="Write announcement..." required></textarea>
-        <button type="submit" class="btn">Post</button>
-      </form>
-    </section>
-
-    <!-- Upload Materials -->
-    <section class="admin-section">
-      <h2>Upload Materials</h2>
-      <form id="uploadForm">
-        <input type="file" />
-        <button type="submit" class="btn">Upload</button>
-      </form>
-    </section>
+    <table class="student-table" id="studentTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Matric No</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Populated via admin.js -->
+      </tbody>
+    </table>
   </main>
 
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3>Edit Student Profile</h3>
+      <form id="editStudentForm">
+        <label>Full Name:
+          <input type="text" id="editName" required />
+        </label>
+        <label>Matric Number:
+          <input type="text" id="editMatric" required />
+        </label>
+        <label>Email:
+          <input type="email" id="editEmail" required />
+        </label>
+        <label>Department:
+          <input type="text" id="editDept" required />
+        </label>
+        <input type="hidden" id="editIndex" />
+        <button type="submit" class="btn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
+  </footer>
+
+  <script src="admin.js"></script>
 </body>
 </html>
