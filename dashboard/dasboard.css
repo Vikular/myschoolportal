@@ -1,0 +1,151 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #003366;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.dashboard-header img.logo {
+  height: 40px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+}
+
+#logoutBtn {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#logoutBtn:hover {
+  background-color: #d62828;
+}
+
+/* Welcome Panel */
+.welcome-panel {
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.welcome-panel h2 {
+  margin-bottom: 0.3rem;
+}
+
+.welcome-panel p {
+  color: #666;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+/* Cards */
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #003366;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card li {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #003366;
+}
+
+/* Profile Card */
+.profile-card {
+  text-align: center;
+}
+
+.profile-card .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.profile-card h3 {
+  margin-bottom: 0.3rem;
+}
+
+.profile-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Actions Card */
+.actions-card button {
+  display: block;
+  width: 100%;
+  margin: 0.4rem 0;
+  padding: 0.6rem;
+  background-color: #0055a5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.actions-card button:hover {
+  background-color: #004080;
+}
+
+/* Footer */
+.dashboard-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  background-color: #f0f0f0;
+  color: #555;
+}
