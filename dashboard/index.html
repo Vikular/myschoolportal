@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard – Global Uni</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="icon" href="../assets/img/favicon.png" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="dashboard-header">
+    <img src="../assets/img/logo.png" alt="Global Uni Logo" class="logo" />
+    <h1>Student Dashboard</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <!-- Welcome Message -->
+  <section class="welcome-panel">
+    <h2>Welcome, <span id="studentName">Student</span> 👋</h2>
+    <p>Here’s what’s happening today at Global Uni.</p>
+  </section>
+
+  <!-- Main Dashboard Grid -->
+  <main class="dashboard-grid">
+    <!-- Profile Summary -->
+    <div class="card profile-card">
+      <img id="profileAvatar" src="../assets/img/avatar.png" alt="User Avatar" class="avatar" />
+      <h3 id="profileName">Jane Doe</h3>
+      <p id="profileEmail">jane.doe@globaluni.edu</p>
+    </div>
+
+    <!-- Upcoming Schedule -->
+    <div class="card">
+      <h3>📅 Upcoming Classes</h3>
+      <ul id="scheduleList"></ul>
+    </div>
+
+    <!-- Enrolled Courses -->
+    <div class="card">
+      <h3>📚 Enrolled Courses</h3>
+      <ul id="courseList"></ul>
+    </div>
+
+    <!-- Notifications -->
+    <div class="card">
+      <h3>🔔 Notifications</h3>
+      <ul id="notificationList"></ul>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card actions-card">
+      <h3>⚡ Quick Actions</h3>
+      <button onclick="alert('Joining class…')">Join Class</button>
+      <button onclick="alert('Viewing results…')">View Results</button>
+      <button onclick="alert('Opening messages…')">Messages</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <p>&copy; 2025 Global Uni. Empowering Global Learners.</p>
+  </footer>
+
+  <script src="dashboard.js" defer></script>
+</body>
+</html>
