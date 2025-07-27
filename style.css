@@ -1,32 +1,130 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #004080;
-  padding: 10px 20px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #003366;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
 }
 
 .nav-links {
   display: flex;
-  list-style: none;
   gap: 1rem;
+  list-style: none;
   overflow-x: auto;
-  white-space: nowrap;
-  padding-left: 0;
-  margin: 0;
 }
 
-.nav-links a {
-  color: #fff;
+.nav-links li a {
+  color: white;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 8px 14px;
+  border-radius: 4px;
   transition: background 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.login-btn {
-  background-color: #0066cc;
+.nav-links li a:hover,
+.login-btn {
+  background-color: #0055a5;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #003366;
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
   border-radius: 4px;
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #003366;
+  color: white;
+}
+
+/* Form containers */
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #003366;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0055a5;
+}
+
+/* Scrollable nav on mobile */
+.scrollable-nav {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-wrap: nowrap;
+  }
 }
