@@ -1,92 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Global Uni – A Modern University Portal</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div id="preloader"></div>
-  <div id="announcementBar">📢 Admissions Open for 2025! Apply Now!</div>
+/* ========== Base Reset ========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; transition: background .3s, color .3s; }
 
-  <header class="navbar">
-    <div class="nav-start">
-      <button id="menuToggle">☰</button>
-      <img src="logo.png" alt="Logo" class="logo" />
-      <h1 class="site-title">Global Uni</h1>
-    </div>
-    <nav id="mainNav" class="nav-links">
-      <a href="#">Home</a>
-      <a href="#courses">Courses</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="auth-block">
-      <span id="userBadge" class="hidden"><img src="avatar.png" alt="Avatar" class="avatar" /> Welcome, <span id="userName"></span></span>
-      <button id="loginBtn">Login</button>
-    </div>
-  </header>
+/* ========== Links & Focus ========== */
+a { color: #0077cc; text-decoration: none; }
+a:hover, button:hover, input:hover { opacity: .9; }
+button:focus, input:focus { outline: 2px solid #0077cc; outline-offset: 2px; }
 
-  <main>
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal hidden">
-      <div class="modal-content">
-        <button class="close">&times;</button>
-        <h2>Student Login</h2>
-        <input type="text" id="username" placeholder="Username" />
-        <input type="password" id="password" placeholder="Password" />
-        <button id="loginSubmit">Login</button>
-      </div>
-    </div>
+/* ========== Dark Mode Support (UI Ready) ========== */
+body.dark-mode { background: #111; color: #eee; }
 
-    <!-- Search -->
-    <div class="search-bar" role="search">
-      <input id="searchInput" type="text" placeholder="Search courses..." autocomplete="off" />
-      <ul id="autocompleteList" class="autocomplete hidden"></ul>
-    </div>
+/* ========== Preloader & Announcement ========== */
+#preloader { position: fixed; inset: 0; background: #fff; z-index: 9999; }
+#announcementBar { background: #ffd700; color: #000; padding: 10px; text-align: center; font-weight: bold; }
 
-    <!-- Courses Section -->
-    <section id="courses">
-      <h3>Course Explorer</h3>
-      <div class="course-grid">
-        <div class="course-card" data-id="1">
-          <h4>Physics BSc</h4><p>Fundamental nature of reality.</p>
-        </div>
-        <div class="course-card" data-id="2">
-          <h4>Graphic Design BA</h4><p>Creativity & technology.</p>
-        </div>
-        <div class="course-card" data-id="3">
-          <h4>Business Admin</h4><p>Leadership & management.</p>
-        </div>
-      </div>
-    </section>
+/* ========== Header & Navigation ========== */
+header.navbar { display: flex; align-items: center; justify-content: space-between; background: #004080; color: white; padding: 10px 20px; flex-wrap: wrap; }
+.nav-start { display: flex; align-items: center; gap: 10px; }
+#menuToggle { display: none; background: none; border: none; font-size: 1.5rem; color: white; }
+.logo { height: 50px; }
+.site-title { font-size: 1.8rem; }
+.nav-links { display: flex; gap: 15px; }
+.nav-links a { color: white; font-size: 1rem; }
 
-    <!-- Course Detail Modal -->
-    <div id="courseModal" class="modal hidden">
-      <div class="modal-content">
-        <button class="close">&times;</button>
-        <h2 id="courseTitle"></h2>
-        <p id="courseDesc"></p>
-      </div>
-    </div>
+/* ========== Auth Block ========== */
+.auth-block { display: flex; align-items: center; gap: 10px; }
+.auth-block button { padding: 5px 10px; background: #0077cc; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; vertical-align: middle; }
 
-    <!-- Student Schedule -->
-    <section id="schedule">
-      <h3>My Schedule</h3>
-      <table class="schedule-table">
-        <thead>
-          <tr><th>Time</th><th>Course</th><th>Room</th></tr>
-        </thead>
-        <tbody id="scheduleBody">
-          <!-- dynamic -->
-        </tbody>
-      </table>
-    </section>
+/* ========== Mobile Navigation ========== */
+#mainNav { transition: max-height .3s ease; max-height: 1000px; overflow: hidden; }
+@media (max-width:768px) {
+  #menuToggle { display: block; }
+  .nav-links { flex-direction: column; width: 100%; }
+  #mainNav { max-height: 0; }
+  #mainNav.open { max-height: 300px; }
+}
 
-    <!-- Other existing sections... -->
-  </main>
+/* ========== Modal UI ========== */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: white; padding: 20px; border-radius: 5px; width: 90%; max-width: 400px; position: relative; }
+.modal .close { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.2rem; cursor: pointer; }
 
-  <script src="main.js"></script>
-</body>
-</html>
+/* ========== Search Autocomplete ========== */
+.search-bar { position: relative; margin: 20px auto; width: 60%; max-width: 400px; }
+.autocomplete { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ccc; list-style: none; padding: 0; max-height: 150px; overflow-y: auto; z-index: 999; }
+.autocomplete li { padding: 8px; cursor: pointer; }
+.autocomplete li:hover { background: #f0f0f0; }
+
+/* ========== Courses ========== */
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 15px; padding: 0 20px; }
+.course-card { padding: 15px; border: 1px solid #ccc; border-radius: 4px; background: white; cursor: pointer; transition: transform .1s; }
+.course-card:hover { transform: translateY(-2px); }
+
+/* ========== Schedule ========== */
+.schedule-table { width: 100%; border-collapse: collapse; margin: 20px; }
+.schedule-table th, .schedule-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+
+/* ========== Chat & Footer ========== */
+#liveChat { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+#chatToggle { padding: 10px; font-size: 1.5rem; background: #0077cc; color: white; border: none; border-radius: 50%; cursor: pointer; }
+#chatBox { background: white; border: 1px solid #ccc; padding: 10px; margin-top: 5px; width: 250px; box-shadow: 0 0 10px rgba(0,0,0,.2); }
+#chatBox input { width: 100%; padding: 8px; margin-top: 10px; border: 1px solid #ccc; }
+
+/* ========== Utility ========== */
+.hidden { display: none; }
+footer { text-align: center; padding: 20px; background: #004080; color: white; }
