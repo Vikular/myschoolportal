@@ -1,212 +1,106 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* General Layout */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Navbar */
 .navbar {
-  background-color: #003366;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 2rem;
-  position: relative;
-  z-index: 1000;
+  background-color: #004080;
+  padding: 10px 20px;
+  color: white;
 }
 
-.navbar .logo {
+.logo {
   display: flex;
   align-items: center;
-  color: #fff;
 }
 
-.navbar .logo img {
-  height: 40px;
+.logo img {
+  height: 50px;
   margin-right: 10px;
-}
-
-.menu-icon {
-  display: none;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 15px;
 }
 
 .nav-links li a {
-  color: #fff;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: white;
+  text-decoration: none;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: #ffcc00;
+.login-btn {
+  background: white;
+  color: #004080;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-/* Mobile menu checkbox (hidden) */
-#menu-toggle {
-  display: none;
+.logout-btn {
+  background-color: #c0392b;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: #003366;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    display: none;
-  }
-
-  #menu-toggle:checked + .menu-icon + nav .nav-links {
-    display: flex;
-  }
-}
-
-/* Hero / Section content */
+/* Hero Section */
 .hero {
   text-align: center;
-  padding: 3rem 1rem;
-  background: #e6f2ff;
+  padding: 60px 20px;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  color: #003366;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.hero .btn {
-  padding: 0.75rem 1.5rem;
-  background-color: #003366;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.hero .btn:hover {
-  background-color: #0055aa;
-}
-
-/* Courses section */
-.content-section {
-  padding: 2rem;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.content-section h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: #003366;
-}
-
-.courses-container {
+/* Login Page */
+.login-page {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f4f4;
 }
 
-.course-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 300px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: 0.3s ease;
-}
-
-.course-card h2 {
-  font-size: 1.3rem;
-  color: #002244;
-}
-
-.course-card p {
-  font-size: 1rem;
-  margin: 1rem 0;
-}
-
-.course-card .btn {
-  background-color: #003366;
-  color: #fff;
-  padding: 0.6rem 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.course-card .btn:hover {
-  background-color: #0055aa;
-}
-
-/* Footer */
-.footer {
-  background-color: #003366;
-  color: #fff;
+.login-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
-  font-size: 0.95rem;
 }
 
-/* iPhone 16 and similar devices */
-@media screen and (max-width: 430px) {
-  .navbar {
-    padding: 0.6rem 1rem;
-  }
+.login-container h2 {
+  margin-bottom: 20px;
+}
 
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+.login-container input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
 
-  .content-section {
-    padding: 1rem;
-  }
+.login-container button {
+  background: #004080;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
 
-  .course-card {
-    width: 100%;
-  }
+.forgot-link {
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 14px;
+}
 
-  .nav-links {
-    font-size: 1rem;
-  }
+.login-logo {
+  max-width: 100px;
+  margin-bottom: 10px;
 }
