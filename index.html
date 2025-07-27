@@ -3,178 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Welcome to MySchoolPortal - A modern university platform for students, staff, and alumni." />
-  <title>MySchoolPortal</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="main.js"></script>
-</head>
-<body>
-  <!-- Topbar with Language Selector and Address -->
-  <header class="topbar">
-    <div class="container">
-      <p class="school-address">123 University Avenue, Calabar, Nigeria</p>
-      <div class="lang-select">
-        <label for="lang">Language:</label>
-        <select id="lang">
-          <option value="en">English</option>
-          <option value="fr">Français</option>
-          <option value="ha">Hausa</option>
-        </select>
-      </div>
-    </div>
-  </header>
+  <title>Global Uni – A Modern University Portal</title>
+  <meta name="description" content="Explore Global Uni – A student-centered educational platform for global learners. Get real-time updates, virtual tours, and more.">
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <img src="assets/logo.png" alt="Logo" class="logo" />
-      <h1 class="school-name">MySchoolPortal</h1>
+  <!-- SEO & Social Meta -->
+  <meta property="og:title" content="Global Uni – A Modern University Portal">
+  <meta property="og:description" content="Explore Global Uni – student-centered platform with real-time features, events, virtual tour, and mobile accessibility.">
+  <meta property="og:image" content="assets/img/preview.jpg">
+  <meta property="og:url" content="https://www.globaluni.edu">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/img/favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Page Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Announcement Bar -->
+  <div id="announcementBar">📢 Admissions Open for 2025! Apply Now!</div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
+    <h1 class="site-title">Global Uni</h1>
+    <nav>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#courses">Courses</a></li>
-        <li><a href="#events">Events</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
+        <li><button id="themeToggle">🌙</button></li>
+        <li>
+          <select id="languageSelector">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="es">ES</option>
+          </select>
+        </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h2>Shape Your Future at MySchoolPortal</h2>
-      <p>Explore global opportunities through academic excellence.</p>
-      <div class="cta-buttons">
-        <a href="register.html" class="btn primary">Apply Now</a>
-        <a href="#virtual-tour" class="btn secondary">Take a Virtual Tour</a>
-      </div>
+  <section class="hero" id="about">
+    <h2>Welcome to Global Uni</h2>
+    <p>Your gateway to world-class education</p>
+    <div class="cta-buttons">
+      <a href="#courses" class="btn primary">Explore Courses</a>
+      <a href="#apply" class="btn secondary">Apply Now</a>
     </div>
   </section>
 
-  <!-- Search Bar -->
-  <section class="search-section">
-    <div class="container">
-      <input type="text" id="searchBar" placeholder="Search courses, news, events..." />
-    </div>
-  </section>
-
-  <!-- Courses Offered -->
-  <section id="courses" class="section">
-    <div class="container">
-      <h2>Courses Offered</h2>
-      <ul class="course-list">
-        <li>B.Sc. Computer Science</li>
-        <li>B.A. Economics</li>
-        <li>B.Eng. Civil Engineering</li>
-        <li>LLB Law</li>
-        <li>Medicine & Surgery</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Featured Staff -->
-  <section class="staff-section">
-    <div class="container">
-      <h2>Meet Our Top Faculty</h2>
-      <div class="staff-grid">
-        <div class="staff-card" onclick="openStaffModal('Prof. Jane Smith', 'Dean of Sciences')">
-          <img src="assets/staff1.jpg" alt="Prof. Jane Smith" />
-          <h3>Prof. Jane Smith</h3>
-          <p>Dean of Sciences</p>
-        </div>
-        <div class="staff-card" onclick="openStaffModal('Dr. John Okon', 'Head of Economics Dept.')">
-          <img src="assets/staff2.jpg" alt="Dr. John Okon" />
-          <h3>Dr. John Okon</h3>
-          <p>Head of Economics</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Staff Modal -->
-  <div id="staffModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <h3 id="modalName">Staff Name</h3>
-      <p id="modalTitle">Position</p>
-    </div>
+  <!-- Search -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search courses, news, events..." />
+    <button>🔍</button>
   </div>
 
   <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="container">
-      <h2>Testimonials</h2>
-      <div class="testimonial-slider">
-        <blockquote>
-          "This school changed my life. The quality of education and support is unmatched." – Alice
-        </blockquote>
-        <blockquote>
-          "A great place to grow academically and professionally." – Daniel
-        </blockquote>
-      </div>
+  <section id="testimonials">
+    <h3>Student & Alumni Testimonials</h3>
+    <div class="testimonial">
+      <p>“Global Uni prepared me for real-world success.”</p>
+      <span>- Ada, BSc Economics</span>
     </div>
   </section>
 
-  <!-- Alumni Success -->
-  <section class="alumni-section">
-    <div class="container">
-      <h2 class="section-title">Our Global Alumni</h2>
-      <p class="section-subtitle">See how our graduates are making a global impact</p>
-      <div class="alumni-grid">
-        <div class="alumni-card">
-          <img src="assets/alumni1.jpg" alt="Jane Doe" />
-          <h3>Jane Doe</h3>
-          <p>Data Scientist, Google – USA</p>
-          <p class="alumni-story">“My journey began at this university. The practical exposure here shaped my global career.”</p>
-        </div>
-        <div class="alumni-card">
-          <img src="assets/alumni2.jpg" alt="Ahmed Musa" />
-          <h3>Ahmed Musa</h3>
-          <p>Entrepreneur, Nigeria</p>
-          <p class="alumni-story">“I launched my tech startup right after graduating. The mentorship was life-changing.”</p>
-        </div>
-        <div class="alumni-card">
-          <img src="assets/alumni3.jpg" alt="Li Wei" />
-          <h3>Li Wei</h3>
-          <p>Professor, Oxford – UK</p>
-          <p class="alumni-story">“Now I teach globally. The academic foundation here was exceptional.”</p>
-        </div>
-      </div>
-    </div>
+  <!-- Student Life -->
+  <section id="studentLife">
+    <h3>Life at Global Uni</h3>
+    <p>Experience diverse culture, vibrant community, and world-class facilities.</p>
   </section>
 
-  <!-- Contact / Help Desk -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact & Help Desk</h2>
-      <p>Have questions? Reach out to us any time.</p>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message..." required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
+  <!-- Virtual Tour -->
+  <section id="virtualTour">
+    <h3>Take a Virtual Tour</h3>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" loading="lazy" title="Virtual Tour"></iframe>
   </section>
 
-  <!-- Newsletter Signup -->
-  <section class="newsletter">
-    <div class="container">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with university news, courses, and events.</p>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p id="newsletterMessage" class="success-msg"></p>
-    </div>
+  <!-- Partner Institutions -->
+  <section id="partners">
+    <h3>Our Partners</h3>
+    <ul>
+      <li>University of Oxford</li>
+      <li>MIT</li>
+      <li>University of Lagos</li>
+    </ul>
   </section>
+
+  <!-- Events -->
+  <section id="events">
+    <h3>Upcoming Events</h3>
+    <ul>
+      <li>🎓 Convocation - Sept 20</li>
+      <li>🔬 Research Summit - Oct 5</li>
+    </ul>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter">
+    <h3>Stay Updated</h3>
+    <form id="newsletterForm">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+      <p id="newsletterFeedback"></p>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h3>Contact / Help Desk</h3>
+    <p>Email: support@globaluni.edu</p>
+    <p>Phone: +234 800 123 4567</p>
+  </section>
+
+  <!-- Mobile App Promo -->
+  <section id="appPromo">
+    <h3>Download Our Mobile App</h3>
+    <a href="#"><img src="assets/img/playstore.png" alt="Play Store" /></a>
+  </section>
+
+  <!-- Campus Map -->
+  <section id="campusMap">
+    <h3>Campus Map</h3>
+    <img src="assets/img/campus-map.jpg" alt="Map" loading="lazy" />
+  </section>
+
+  <!-- Live Chat -->
+  <div id="liveChat">
+    <button id="chatToggle">💬 Chat</button>
+    <div id="chatBox" class="hidden">
+      <p>Hello! How can we help?</p>
+      <input type="text" placeholder="Type your message..." />
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>&copy; 2025 MySchoolPortal. All rights reserved.</p>
-    </div>
+    <p>&copy; 2025 Global Uni. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
