@@ -23,22 +23,22 @@
   <div id="preloader"></div>
 
   <!-- Announcement Bar -->
-  <div id="announcementBar">📢 Admissions Open for 2025! Apply Now!</div>
+  <div id="announcementBar" role="alert">📢 Admissions Open for 2025! Apply Now!</div>
 
   <!-- Header -->
-  <header class="navbar">
+  <header class="navbar" role="banner">
     <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
     <h1 class="site-title">Global Uni</h1>
-    <nav>
+    <nav role="navigation" aria-label="Main Navigation">
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#courses">Courses</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><button id="themeToggle">🌙</button></li>
+        <li><button id="themeToggle" aria-label="Toggle dark mode">🌙</button></li>
         <li>
-          <select id="languageSelector">
+          <select id="languageSelector" aria-label="Select language">
             <option value="en">EN</option>
             <option value="fr">FR</option>
             <option value="es">ES</option>
@@ -48,102 +48,104 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="about">
-    <h2>Welcome to Global Uni</h2>
-    <p>Your gateway to world-class education</p>
-    <div class="cta-buttons">
-      <a href="#courses" class="btn primary">Explore Courses</a>
-      <a href="#apply" class="btn secondary">Apply Now</a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+      <h2>Welcome to Global Uni</h2>
+      <p>Your gateway to world-class education</p>
+      <div class="cta-buttons">
+        <a href="#courses" class="btn primary">Explore Courses</a>
+        <a href="#apply" class="btn secondary">Apply Now</a>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <div class="search-bar" role="search">
+      <input type="text" placeholder="Search courses, news, events..." aria-label="Search input" />
+      <button aria-label="Search button">🔍</button>
     </div>
-  </section>
 
-  <!-- Search -->
-  <div class="search-bar">
-    <input type="text" placeholder="Search courses, news, events..." />
-    <button>🔍</button>
-  </div>
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h3>Student & Alumni Testimonials</h3>
+      <div class="testimonial">
+        <p>“Global Uni prepared me for real-world success.”</p>
+        <span>- Ada, BSc Economics</span>
+      </div>
+    </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <h3>Student & Alumni Testimonials</h3>
-    <div class="testimonial">
-      <p>“Global Uni prepared me for real-world success.”</p>
-      <span>- Ada, BSc Economics</span>
-    </div>
-  </section>
+    <!-- Student Life -->
+    <section id="studentLife">
+      <h3>Life at Global Uni</h3>
+      <p>Experience diverse culture, vibrant community, and world-class facilities.</p>
+    </section>
 
-  <!-- Student Life -->
-  <section id="studentLife">
-    <h3>Life at Global Uni</h3>
-    <p>Experience diverse culture, vibrant community, and world-class facilities.</p>
-  </section>
+    <!-- Virtual Tour -->
+    <section id="virtualTour">
+      <h3>Take a Virtual Tour</h3>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" loading="lazy" title="Virtual Tour"></iframe>
+    </section>
 
-  <!-- Virtual Tour -->
-  <section id="virtualTour">
-    <h3>Take a Virtual Tour</h3>
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" loading="lazy" title="Virtual Tour"></iframe>
-  </section>
+    <!-- Partner Institutions -->
+    <section id="partners">
+      <h3>Our Partners</h3>
+      <ul>
+        <li>University of Oxford</li>
+        <li>MIT</li>
+        <li>University of Lagos</li>
+      </ul>
+    </section>
 
-  <!-- Partner Institutions -->
-  <section id="partners">
-    <h3>Our Partners</h3>
-    <ul>
-      <li>University of Oxford</li>
-      <li>MIT</li>
-      <li>University of Lagos</li>
-    </ul>
-  </section>
+    <!-- Events -->
+    <section id="events">
+      <h3>Upcoming Events</h3>
+      <ul>
+        <li>🎓 Convocation - Sept 20</li>
+        <li>🔬 Research Summit - Oct 5</li>
+      </ul>
+    </section>
 
-  <!-- Events -->
-  <section id="events">
-    <h3>Upcoming Events</h3>
-    <ul>
-      <li>🎓 Convocation - Sept 20</li>
-      <li>🔬 Research Summit - Oct 5</li>
-    </ul>
-  </section>
+    <!-- Newsletter -->
+    <section id="newsletter">
+      <h3>Stay Updated</h3>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required aria-label="Email address" />
+        <button type="submit">Subscribe</button>
+        <p id="newsletterFeedback" aria-live="polite"></p>
+      </form>
+    </section>
 
-  <!-- Newsletter -->
-  <section id="newsletter">
-    <h3>Stay Updated</h3>
-    <form id="newsletterForm">
-      <input type="email" placeholder="Enter your email" required />
-      <button type="submit">Subscribe</button>
-      <p id="newsletterFeedback"></p>
-    </form>
-  </section>
+    <!-- Contact -->
+    <section id="contact">
+      <h3>Contact / Help Desk</h3>
+      <p>Email: <a href="mailto:support@globaluni.edu">support@globaluni.edu</a></p>
+      <p>Phone: <a href="tel:+2348001234567">+234 800 123 4567</a></p>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h3>Contact / Help Desk</h3>
-    <p>Email: support@globaluni.edu</p>
-    <p>Phone: +234 800 123 4567</p>
-  </section>
+    <!-- Mobile App Promo -->
+    <section id="appPromo">
+      <h3>Download Our Mobile App</h3>
+      <a href="#"><img src="assets/img/playstore.png" alt="Play Store" /></a>
+    </section>
 
-  <!-- Mobile App Promo -->
-  <section id="appPromo">
-    <h3>Download Our Mobile App</h3>
-    <a href="#"><img src="assets/img/playstore.png" alt="Play Store" /></a>
-  </section>
-
-  <!-- Campus Map -->
-  <section id="campusMap">
-    <h3>Campus Map</h3>
-    <img src="assets/img/campus-map.jpg" alt="Map" loading="lazy" />
-  </section>
+    <!-- Campus Map -->
+    <section id="campusMap">
+      <h3>Campus Map</h3>
+      <img src="assets/img/campus-map.jpg" alt="Map" loading="lazy" />
+    </section>
+  </main>
 
   <!-- Live Chat -->
   <div id="liveChat">
-    <button id="chatToggle">💬 Chat</button>
-    <div id="chatBox" class="hidden">
+    <button id="chatToggle" aria-label="Open chat">💬 Chat</button>
+    <div id="chatBox" class="hidden" aria-live="polite">
       <p>Hello! How can we help?</p>
-      <input type="text" placeholder="Type your message..." />
+      <input type="text" placeholder="Type your message..." aria-label="Chat input" />
     </div>
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <p>&copy; 2025 Global Uni. All rights reserved.</p>
   </footer>
 
