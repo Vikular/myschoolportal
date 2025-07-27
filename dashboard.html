@@ -1,61 +1,49 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Dashboard – Global Uni</title>
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/responsive.css" />
-  <link rel="stylesheet" href="styles/components.css" />
-  <link rel="stylesheet" href="styles/dark-mode.css" />
-  <link rel="icon" href="assets/img/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Uni Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark-mode.css" />
+  <script defer src="assets/js/main.js"></script>
 </head>
+<body class="light-mode">
+  <!-- Announcement Banner -->
+  <div id="announcementBanner" class="announcement-banner"></div>
 
-<body>
-  <header class="navbar">
-    <div class="nav-start">
-      <button id="menuToggle" aria-label="Toggle menu">☰</button>
-      <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
-      <h1 class="site-title">Global Uni</h1>
-    </div>
-    <nav id="mainNav" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="dashboard.html" class="active">Dashboard</a>
-      <a href="#logout">Logout</a>
-    </nav>
-    <div class="auth-block">
-      <span id="userBadge">
-        <img src="assets/img/avatar.png" alt="User avatar" class="avatar" />
-        Welcome, <span id="userName">Student</span>
-      </span>
-      <div class="theme-switch">
-        <label class="toggle-container">
-          <input type="checkbox" id="themeToggle" />
-          <span class="slider"></span> 🌙
-        </label>
-      </div>
+  <!-- Topbar -->
+  <header class="dashboard-topbar">
+    <h1 id="dashboardTitle">Dashboard</h1>
+    <div class="dashboard-actions">
+      <button id="themeToggleBtn" title="Toggle theme">🌓</button>
+      <button id="logoutBtn">Logout</button>
     </div>
   </header>
 
-  <main class="dashboard">
-    <section class="welcome-section">
-      <h2>Welcome to Your Dashboard</h2>
-      <p>Here you can view your enrolled courses, check your timetable, submit assignments, and track progress.</p>
+  <!-- Sidebar -->
+  <aside id="dashboardSidebar" class="dashboard-sidebar">
+    <nav>
+      <ul id="dashboardMenu"></ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+    <section id="welcomeSection" class="dashboard-section">
+      <h2 id="welcomeMessage"></h2>
+      <p>Here's your latest activity and updates.</p>
     </section>
 
-    <section class="dashboard-cards">
-      <div class="dashboard-card"><h3>📘 My Courses</h3><p>Access all registered courses</p></div>
-      <div class="dashboard-card"><h3>📝 Assignments</h3><p>Submit and view results</p></div>
-      <div class="dashboard-card"><h3>📅 Schedule</h3><p>View your weekly timetable</p></div>
-      <div class="dashboard-card"><h3>📊 Grades</h3><p>Track academic performance</p></div>
+    <section id="dynamicPanel" class="dashboard-section">
+      <!-- Dynamic content loads here -->
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Global Uni. Student Portal.</p>
+  <footer class="dashboard-footer">
+    <p>&copy; 2025 Global Uni. All rights reserved.</p>
   </footer>
-
-  <script src="scripts/main.js" defer></script>
 </body>
 </html>
