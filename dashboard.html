@@ -3,48 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard | AXYE SCHOOL</title>
+  <title>Student Dashboard - School Portal</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="login.js"></script>
 </head>
 <body>
-
-  <!-- Header/Navbar -->
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/logo.JPG" alt="AXYE School Logo" />
-      <span>AXYE SCHOOL</span>
-    </a>
-
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
+  <header>
+    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-menu">
         <li><a href="dashboard.html" class="active">Dashboard</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li><button id="logoutBtn" class="logout-btn">Logout</button></li>
+        <li><button id="logoutBtn" class="btn logout-btn">Logout</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Dashboard Content -->
-  <main class="dashboard">
-    <h1>Welcome, Student</h1>
-    <p>Select an option from the menu to get started.</p>
-    <div class="dashboard-grid">
-      <a href="courses.html" class="dashboard-card">View Courses</a>
-      <a href="assignments.html" class="dashboard-card">Submit Assignments</a>
-      <a href="results.html" class="dashboard-card">Check Results</a>
-    </div>
+  <main class="dashboard-content">
+    <h2>Welcome, <span id="userName"></span></h2>
+
+    <section class="dashboard-section">
+      <h3>Student Dashboard</h3>
+      <p>Select any section from the menu to view your academic information.</p>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Protect page: Only logged-in users can view
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = loggedInUser.name || "Student";
+    }
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedInUser");
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    });
+  </script>
 </body>
 </html>
