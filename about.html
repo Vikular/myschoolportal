@@ -1,69 +1,100 @@
-<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us – Global Uni</title>
-  <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/responsive.css" />
-  <link rel="stylesheet" href="styles/components.css" />
-  <link rel="stylesheet" href="styles/dark-mode.css" />
-  <link rel="icon" href="assets/img/favicon.png" />
+  <title>About Us | Global Uni</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/dark-mode.css" />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
 </head>
-
 <body>
-  <div id="preloader"></div>
-  <header class="navbar">
-    <div class="nav-start">
-      <button id="menuToggle" aria-label="Toggle menu">☰</button>
-      <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
-      <h1 class="site-title">Global Uni</h1>
-    </div>
-    <nav id="mainNav" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="auth-block">
-      <button id="loginBtn">Login</button>
-      <div class="theme-switch">
-        <label class="toggle-container">
-          <input type="checkbox" id="themeToggle" />
-          <span class="slider"></span> 🌙
-        </label>
-      </div>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container flex space-between align-center">
+      <a href="index.html" class="logo">Global Uni</a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌓</button>
+      <button class="hamburger" id="hamburger">&#9776;</button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>About Global Uni</h2>
-      <p>We are dedicated to transforming global education through technology and accessibility.</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="page-hero about-hero">
+    <div class="container">
+      <h1>About Global Uni</h1>
+      <p>Empowering futures through knowledge and innovation.</p>
+    </div>
+  </section>
 
-    <section class="content">
-      <h3>Our Mission</h3>
-      <p>To empower learners around the world with high-quality, flexible, and inclusive education through innovative technology and international partnerships.</p>
+  <!-- About Content -->
+  <section class="about-content section">
+    <div class="container grid-2">
+      <div>
+        <h2>Our Mission</h2>
+        <p>
+          At Global Uni, our mission is to provide high-quality, inclusive education that shapes tomorrow’s leaders and innovators. We bridge academic excellence with practical experience in a globally connected environment.
+        </p>
+        <h2>Our Vision</h2>
+        <p>
+          To be a top-tier global university that fosters cutting-edge research, interdisciplinary learning, and a vibrant student community.
+        </p>
+      </div>
+      <div>
+        <img src="assets/images/about-campus.jpg" alt="Global Uni Campus" class="responsive-img" />
+      </div>
+    </div>
+  </section>
 
-      <h3>Core Values</h3>
-      <ul>
-        <li>🌍 Inclusivity & Diversity</li>
-        <li>📚 Academic Excellence</li>
-        <li>🤝 Collaboration</li>
-        <li>🔬 Research & Innovation</li>
-      </ul>
+  <!-- Core Values -->
+  <section class="core-values section">
+    <div class="container">
+      <h2 class="center-text">Our Core Values</h2>
+      <div class="grid-3 text-center">
+        <div class="card">
+          <h3>Integrity</h3>
+          <p>We uphold strong ethical standards in academics, leadership, and service.</p>
+        </div>
+        <div class="card">
+          <h3>Innovation</h3>
+          <p>We embrace technology and ideas that improve education and community impact.</p>
+        </div>
+        <div class="card">
+          <h3>Inclusivity</h3>
+          <p>We welcome diversity and foster equity among students, staff, and faculty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <h3>Our Global Reach</h3>
-      <p>With over 75 partner institutions, Global Uni supports thousands of students across more than 50 countries.</p>
-    </section>
-  </main>
+  <!-- Call to Action -->
+  <section class="cta-banner section">
+    <div class="container center-text">
+      <h2>Ready to start your journey with us?</h2>
+      <a href="index.html#courses" class="btn primary">Explore Our Programs</a>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Global Uni. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container flex space-between align-center">
+      <p>&copy; 2025 Global Uni. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+    </div>
   </footer>
 
-  <script src="scripts/main.js" defer></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
