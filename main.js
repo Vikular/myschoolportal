@@ -1,22 +1,39 @@
-// Staff Modal Logic
-function openStaffModal(name, title) {
-  document.getElementById('staffModal').style.display = 'block';
-  document.getElementById('modalName').textContent = name;
-  document.getElementById('modalTitle').textContent = title;
-}
+// Real-time alert banner simulation
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("alert-banner");
 
-function closeModal() {
-  document.getElementById('staffModal').style.display = 'none';
-}
+  const alerts = [
+    "Admissions for 2025/2026 are now open!",
+    "Check your email for exam schedules.",
+    "Campus will be closed for maintenance on Friday."
+  ];
 
-// Newsletter feedback
-document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('newsletterMessage').textContent = 'Thank you for subscribing!';
-  this.reset();
+  if (banner) {
+    banner.textContent = alerts[0];
+    banner.classList.remove("hidden");
+
+    setInterval(() => {
+      const next = alerts[Math.floor(Math.random() * alerts.length)];
+      banner.textContent = next;
+    }, 10000);
+  }
+
+  // Newsletter form
+  const form = document.getElementById("newsletter-form");
+  const feedback = document.getElementById("newsletter-feedback");
+
+  if (form) {
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      feedback.classList.remove("hidden");
+      feedback.textContent = "✅ Thanks for subscribing!";
+      feedback.style.color = "green";
+      form.reset();
+    });
+  }
 });
 
-// Search functionality (sample)
-document.getElementById('searchBar')?.addEventListener('input', function () {
-  console.log("Searching for:", this.value);
-});
+// Placeholder live chat function
+function openChat() {
+  alert("🔔 Live chat coming soon. Please check back later.");
+}
