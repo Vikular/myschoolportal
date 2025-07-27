@@ -1,21 +1,51 @@
-/* Base Styles */
+/* ===================================
+   Global Uni - Main Stylesheet
+   =================================== */
+
+:root {
+  --primary-color: #004080;
+  --secondary-color: #f2f2f2;
+  --text-color: #333;
+  --accent-color: #ff9900;
+  --dark-bg: #121212;
+  --light-bg: #ffffff;
+  --transition-speed: 0.3s;
+}
+
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background-color: #f8f9fa;
-  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-h1, h2, h3, h4 {
-  margin: 0.5em 0;
-  font-weight: 600;
+/* Dark mode support */
+body.dark {
+  background-color: var(--dark-bg);
+  color: #f2f2f2;
 }
 
-section {
-  padding: 60px 20px;
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+/* Preloader */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Announcement Bar */
+#announcementBar {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 /* Navbar */
@@ -23,284 +53,67 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
-  background-color: #002244;
+  padding: 10px 20px;
+  background: var(--primary-color);
   color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-.nav-start {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  height: 40px;
-}
-
-.site-title {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
 }
 
 .nav-links a {
-  color: #fff;
+  margin: 0 10px;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-  color: #00b4d8;
-  text-decoration: underline;
-}
-
-/* Auth Block */
-.auth-block {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#loginBtn {
-  background: #00b4d8;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-#loginBtn:hover {
-  background-color: #0096c7;
-}
-
-.avatar {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-}
-
-/* Modal */
+/* Login Modal */
 .modal {
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 999;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal.hidden {
-  display: none;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
 }
 
 .modal-content {
-  background: #fff;
-  padding: 30px;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
   max-width: 400px;
-  width: 100%;
-  border-radius: 8px;
-  position: relative;
 }
 
-.modal .close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
+/* Dark mode modal */
+body.dark .modal-content {
+  background-color: #333;
+  color: #f2f2f2;
 }
 
 /* Search Bar */
 .search-bar {
-  padding: 20px;
+  margin: 20px;
   text-align: center;
 }
 
-.search-bar input {
+input[type="text"] {
   padding: 10px;
-  width: 50%;
-  max-width: 400px;
-  font-size: 16px;
+  width: 70%;
 }
 
-/* Course Cards */
-.course-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  padding: 20px 0;
-}
-
-.course-card {
-  background: #e3f2fd;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #bbdefb;
-  transition: transform 0.2s ease;
-}
-
-.course-card:hover {
-  transform: translateY(-4px);
-}
-
-/* Schedule Table */
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.schedule-table th, .schedule-table td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: left;
-  background: #fafafa;
-}
-
-/* Features Grid */
-.features-grid,
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.feature-card, .stats-grid > div {
-  background: #fff3e0;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #ffe0b2;
-  text-align: center;
-}
-
-/* World Map Pins */
-.map-wrapper {
-  position: relative;
-  text-align: center;
-}
-
-.map-wrapper img {
-  width: 100%;
-  max-width: 1000px;
-}
-
-.map-pins {
-  position: absolute;
-  top: 0;
-  left: 0;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.map-pins li {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  background: #002244;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 0.9em;
-}
-
-/* Video Container */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Announcement */
-#announcementBar {
-  background: #ffecb3;
-  color: #444;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* Footer */
-footer {
-  background: #002244;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Live Chat */
-#liveChat {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-#chatToggle {
-  background: #00b4d8;
-  border: none;
-  padding: 10px 14px;
-  color: white;
-  font-size: 18px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-#chatBox {
-  margin-top: 10px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#chatBox.hidden {
-  display: none;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
   .nav-links {
-    flex-direction: column;
-    gap: 10px;
     display: none;
   }
 
   .nav-links.show {
-    display: flex;
+    display: block;
   }
 
-  #menuToggle {
-    display: inline-block;
-    background: transparent;
-    border: none;
-    font-size: 24px;
-    color: #fff;
+  .course-grid, .features-grid, .stats-grid {
+    flex-direction: column;
+    align-items: center;
   }
 }
