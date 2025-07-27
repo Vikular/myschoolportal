@@ -4,145 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Global Uni – A Modern University Portal</title>
-  <meta name="description" content="Explore Global Uni – A student-centered educational platform for global learners. Get real-time updates, virtual tours, and more.">
-  <meta property="og:title" content="Global Uni – A Modern University Portal">
-  <meta property="og:description" content="Explore Global Uni – student‑centered platform with real‑time features, events, virtual tour, and mobile accessibility.">
-  <meta property="og:image" content="assets/img/preview.jpg">
-  <meta property="og:url" content="https://www.globaluni.edu">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/img/favicon.png">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta name="description" content="Global Uni – A student-centered educational platform">
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Global Uni Team" />
+  <link rel="canonical" href="https://www.globaluni.edu/" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="preloader"></div>
-  <div id="announcementBar" role="alert">📢 Admissions Open for 2025! Apply Now!</div>
+  <div id="preloader" role="status" aria-label="Page loading..."></div>
+  <div id="announcementBar" role="banner">📢 Admissions Open for 2025! Apply Now!</div>
 
-  <header class="navbar" role="banner">
+  <header class="navbar">
     <div class="nav-start">
       <button id="menuToggle" aria-label="Toggle menu">☰</button>
-      <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo">
+      <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
       <h1 class="site-title">Global Uni</h1>
     </div>
-    <nav role="navigation" aria-label="Main Navigation" id="mainNav">
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="themeToggle" aria-label="Toggle dark mode">🌙</button></li>
-        <li>
-          <select id="languageSelector" aria-label="Select language">
-            <option value="en">EN</option>
-            <option value="fr">FR</option>
-            <option value="es">ES</option>
-          </select>
-        </li>
-      </ul>
+    <nav id="mainNav" class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="#">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#schedule">My Schedule</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="auth-block">
+      <span id="userBadge" class="hidden">
+        <img src="assets/img/avatar.png" alt="Avatar" class="avatar" />
+        Welcome, <span id="userName"></span>
+      </span>
+      <button id="loginBtn">Login</button>
+    </div>
   </header>
 
   <main>
-    <section class="hero" id="about">
-      <h2 data-lang-en="Welcome to Global Uni" data-lang-fr="Bienvenue à Global Uni" data‑lang-es="Bienvenido a Global Uni">Welcome to Global Uni</h2>
-      <p data-lang-en="Your gateway to world-class education" data-lang-fr="Votre porte vers une éducation de classe mondiale" data‑lang-es="Su puerta a una educación de clase mundial">Your gateway to world-class education</p>
-      <div class="cta-buttons">
-        <a href="#courses" class="btn primary" data‑lang-en="Explore Courses" data‑lang-fr="Explorer les cours" data‑lang-es="Explorar cursos">Explore Courses</a>
-        <a href="#courses" class="btn secondary" data‑lang-en="Apply Now" data‑lang-fr="Postuler maintenant" data‑lang-es="Aplica ahora">Apply Now</a>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <div class="modal-content">
+        <button class="close" aria-label="Close login modal">&times;</button>
+        <h2 id="loginTitle">Student Login</h2>
+        <form id="loginForm" onsubmit="event.preventDefault();">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Username" required />
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit" id="loginSubmit">Login</button>
+        </form>
       </div>
-    </section>
-
-    <div class="search-bar" role="search">
-      <input type="text" placeholder="Search courses, news, events..." aria-label="Search input">
-      <button aria-label="Search button">🔍</button>
     </div>
 
-    <!-- Course Explorer -->
-    <section id="courses">
-      <h3 data‑lang‑en="Course Explorer" data‑lang‑fr="Explorateur de cours" data‑lang‑es="Explorador de cursos">Course Explorer</h3>
-      <div class="filters">
-        <button data-filter="all" class="filter-btn active">All</button>
-        <button data-filter="science" class="filter-btn">Science</button>
-        <button data-filter="arts" class="filter-btn">Arts</button>
-        <button data-filter="business" class="filter-btn">Business</button>
-      </div>
+    <!-- Search -->
+    <div class="search-bar" role="search">
+      <input id="searchInput" type="text" placeholder="Search courses..." autocomplete="off" aria-label="Search courses" />
+      <ul id="autocompleteList" class="autocomplete hidden" role="listbox"></ul>
+    </div>
+
+    <!-- Courses -->
+    <section id="courses" aria-labelledby="coursesHeading">
+      <h3 id="coursesHeading">Course Explorer</h3>
       <div class="course-grid">
-        <div class="course-card" data-category="science">
-          <h4>Physics BSc</h4><p>Study the fundamental nature of reality.</p>
-        </div>
-        <div class="course-card" data-category="arts">
-          <h4>Graphic Design BA</h4><p>Creativity meets technology.</p>
-        </div>
-        <div class="course-card" data-category="business">
-          <h4>Business Admin</h4><p>Leadership and management skills.</p>
-        </div>
-        <!-- more cards -->
+        <div class="course-card" data-id="1"><h4>Physics BSc</h4><p>Fundamental nature of reality.</p></div>
+        <div class="course-card" data-id="2"><h4>Graphic Design BA</h4><p>Creativity & technology.</p></div>
+        <div class="course-card" data-id="3"><h4>Business Admin</h4><p>Leadership & management.</p></div>
       </div>
     </section>
 
-    <!-- News Feed -->
-    <section id="news">
-      <h3 data‑lang‑en="Latest News" data‑lang‑fr="Dernières nouvelles" data‑lang‑es="Últimas noticias">Latest News</h3>
-      <div class="news-feed">
-        <div class="news-item">Orientation Week kickoff on Aug 10.</div>
-        <div class="news-item">Scholarship deadline extended to Sept 30.</div>
-        <div class="news-item">New campus library opening soon.</div>
+    <!-- Course Modal -->
+    <div id="courseModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="courseTitle">
+      <div class="modal-content">
+        <button class="close" aria-label="Close course detail">&times;</button>
+        <h2 id="courseTitle"></h2>
+        <p id="courseDesc"></p>
       </div>
-    </section>
+    </div>
 
-    <!-- Events Calendar -->
-    <section id="events">
-      <h3 data‑lang‑en="Events Calendar" data‑lang‑fr="Calendrier des événements" data‑lang‑es="Calendario de eventos">Events Calendar</h3>
-      <div id="calendar"></div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials">
-      <h3>Student & Alumni Testimonials</h3>
-      <div class="testimonial">
-        <p>“Global Uni prepared me for real-world success.”</p>
-        <span>- Ada, BSc Economics</span>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section id="newsletter">
-      <h3 data‑lang‑en="Stay Updated" data‑lang‑fr="Restez informé" data‑lang‑es="Mantente al día">Stay Updated</h3>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required aria-label="Email address">
-        <button type="submit">Subscribe</button>
-        <p id="newsletterFeedback" aria-live="polite"></p>
-      </form>
+    <!-- Schedule -->
+    <section id="schedule" aria-labelledby="scheduleHeading">
+      <h3 id="scheduleHeading">My Schedule</h3>
+      <table class="schedule-table">
+        <thead><tr><th>Time</th><th>Course</th><th>Room</th></tr></thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
     </section>
 
     <!-- Contact -->
-    <section id="contact">
-      <h3>Contact / Help Desk</h3>
-      <p>Email: <a href="mailto:support@globaluni.edu">support@globaluni.edu</a></p>
-      <p>Phone: <a href="tel:+2348001234567">+234 800 123 4567</a></p>
+    <section id="contact" aria-labelledby="contactHeading">
+      <h3 id="contactHeading">Contact / Help Desk</h3>
+      <p>Email: support@globaluni.edu | Phone: +234‑800‑123‑4567</p>
     </section>
-
-    <!-- ... rest unchanged ... -->
   </main>
 
+  <!-- Chat Box -->
   <div id="liveChat">
     <button id="chatToggle" aria-label="Open chat">💬 Chat</button>
     <div id="chatBox" class="hidden" aria-live="polite">
       <p>Hello! How can we help?</p>
-      <input type="text" placeholder="Type your message..." aria-label="Chat input">
+      <input type="text" placeholder="Type your message..." aria-label="Chat input" />
     </div>
   </div>
 
+  <!-- Footer -->
   <footer role="contentinfo">
     <p>&copy; 2025 Global Uni. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script src="main.js" defer></script>
 </body>
 </html>
