@@ -3,109 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>School Portal</title>
+  <title>School Portal - Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Header and Navigation -->
   <header>
     <div class="header-container">
       <img src="images/logo.JPG" alt="School Logo" class="logo" />
-      <nav class="nav-menu">
-        <a href="index.html" class="active">Home</a>
-        <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="courses.html">Courses</a>
-        <a href="assignments.html">Assignments</a>
-        <a href="results.html">Results</a>
-      </nav>
+      <div class="school-name">My School Name</div>
     </div>
-    <div class="address-bar">Cross River State University, Calabar, Nigeria</div>
+    <p class="school-address">123 Campus Road, Nigeria</p>
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to the Student Portal</h1>
-    <p>Your gateway to academic information and resources.</p>
-    <a href="login.html" class="btn">Get Started</a>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Our School Portal</h1>
+      <p>Your gateway to academic success and school management.</p>
+    </section>
 
-  <!-- News and Events Section -->
-  <section class="news-section">
-    <h2>Latest News & Events</h2>
-    <ul>
-      <li>📢 Matriculation holds on August 10th.</li>
-      <li>🗓️ 2nd semester exams begin September 15.</li>
-      <li>🎓 Final year clearance ongoing in admin block.</li>
-    </ul>
-  </section>
+    <section class="news-events">
+      <h2>News & Events</h2>
+      <ul>
+        <li>🗓️ Matriculation Ceremony - August 15</li>
+        <li>🎓 Convocation 2025 - October 20</li>
+        <li>📢 Online Exams Portal Opens - September 1</li>
+      </ul>
+    </section>
 
-  <!-- Courses Offered -->
-  <section class="courses-section">
-    <h2>Courses Offered</h2>
-    <div class="course-list">
-      <div class="course-card">Economics</div>
-      <div class="course-card">Computer Science</div>
-      <div class="course-card">Mass Communication</div>
-      <div class="course-card">Accounting</div>
-      <div class="course-card">Sociology</div>
-      <div class="course-card">Business Admin</div>
-    </div>
-  </section>
+    <section class="courses-section">
+      <h2>Courses Offered</h2>
+      <ul>
+        <li>Computer Science</li>
+        <li>Economics</li>
+        <li>Business Admin</li>
+        <li>Education & Political Science</li>
+      </ul>
+    </section>
 
-  <!-- High Ranked Staff -->
-  <section class="staff-section">
-    <h2>Meet Our Top Staff</h2>
-    <div class="staff-list">
-      <div class="staff-card" onclick="showStaffProfile('Dr. Jane Smith', 'Head of Computer Science')">
-        <img src="images/staff1.jpg" alt="Dr. Jane Smith" />
-        <p>Dr. Jane Smith</p>
-        <span>Computer Science</span>
+    <section class="staff-section">
+      <h2>High Ranked Staff</h2>
+      <div class="staff-container">
+        <div class="staff-card" onclick="showStaffModal('Dr. Jane Doe', 'Vice Chancellor')">
+          <img src="images/staff1.jpg" alt="Staff 1" />
+          <p>Dr. Jane Doe</p>
+        </div>
+        <div class="staff-card" onclick="showStaffModal('Prof. John Smith', 'Dean of Studies')">
+          <img src="images/staff2.jpg" alt="Staff 2" />
+          <p>Prof. John Smith</p>
+        </div>
       </div>
-      <div class="staff-card" onclick="showStaffProfile('Prof. John Doe', 'Dean of Faculty of Social Sciences')">
-        <img src="images/staff2.jpg" alt="Prof. John Doe" />
-        <p>Prof. John Doe</p>
-        <span>Social Sciences</span>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Staff Modal -->
   <div id="staffModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h3 id="staffName"></h3>
-      <p id="staffPosition"></p>
+      <p id="staffRole"></p>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 School Portal. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    function showStaffProfile(name, position) {
-      document.getElementById('staffName').textContent = name;
-      document.getElementById('staffPosition').textContent = position;
-      document.getElementById('staffModal').style.display = 'block';
+    function showStaffModal(name, role) {
+      document.getElementById("staffName").innerText = name;
+      document.getElementById("staffRole").innerText = role;
+      document.getElementById("staffModal").style.display = "block";
     }
 
     function closeModal() {
-      document.getElementById('staffModal').style.display = 'none';
+      document.getElementById("staffModal").style.display = "none";
     }
 
-    // Close modal on outside click
-    window.onclick = function(event) {
-      const modal = document.getElementById('staffModal');
-      if (event.target === modal) {
-        modal.style.display = "none";
+    // Hide modal if clicked outside
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("staffModal")) {
+        closeModal();
       }
-    }
+    };
   </script>
-
 </body>
 </html>
