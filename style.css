@@ -1,88 +1,338 @@
-// main.js
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Close announcement banner
-  const closeBanner = document.querySelector(".alert-banner .close-btn");
-  if (closeBanner) {
-    closeBanner.addEventListener("click", () => {
-      document.querySelector(".alert-banner").style.display = "none";
-    });
-  }
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
-  // Newsletter signup confirmation
-  const newsletterForm = document.getElementById("newsletter-form");
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("✅ Thank you for subscribing to our newsletter!");
-      newsletterForm.reset();
-    });
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  // Modal for staff bios
-  const modal = document.getElementById("staffModal");
-  const modalContent = document.getElementById("modalContent");
-  const modalClose = document.getElementById("modalClose");
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 0;
+}
 
-  const staffCards = document.querySelectorAll(".staff-card");
-  staffCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      const name = card.getAttribute("data-name");
-      const bio = card.getAttribute("data-bio");
-      modalContent.innerHTML = `<h3>${name}</h3><p>${bio}</p>`;
-      modal.style.display = "block";
-    });
-  });
+/* Topbar */
+.topbar {
+  background-color: #004080;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
 
-  if (modalClose) {
-    modalClose.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  }
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  window.addEventListener("click", (e) => {
-    if (e.target == modal) {
-      modal.style.display = "none";
-    }
-  });
+.lang-select select {
+  padding: 0.2rem;
+  border: none;
+  border-radius: 4px;
+}
 
-  // Live Chat Button
-  const chatBtn = document.getElementById("chatButton");
-  if (chatBtn) {
-    chatBtn.addEventListener("click", () => {
-      alert("💬 Live chat support is coming soon. Stay tuned!");
-    });
-  }
+/* Navbar */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  // Language Selector
-  const langSelector = document.getElementById("language");
-  if (langSelector) {
-    langSelector.addEventListener("change", function () {
-      alert(`🌐 Language changed to: ${this.value}`);
-      // Language switching logic to be implemented (i18n)
-    });
-  }
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  // Smooth scrolling (for anchor links if used)
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
 
-  // Search Functionality (basic)
-  const searchInput = document.getElementById("searchInput");
-  const searchBtn = document.getElementById("searchBtn");
-  if (searchInput && searchBtn) {
-    searchBtn.addEventListener("click", function () {
-      const query = searchInput.value.trim();
-      if (query) {
-        alert(`🔍 You searched for: "${query}".\n(Smart search will be implemented.)`);
-      }
-    });
-  }
-});
+.nav-links a {
+  font-weight: 500;
+  color: #004080;
+}
+
+.login-btn {
+  background: #004080;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.logo {
+  width: 40px;
+  height: auto;
+}
+
+.school-name {
+  margin-left: 10px;
+  font-size: 1.5rem;
+  color: #004080;
+}
+
+/* Hero Section */
+.hero {
+  background: url('assets/hero-bg.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons .btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.primary {
+  background: #007bff;
+  color: white;
+}
+
+.secondary {
+  background: #f8f9fa;
+  color: #004080;
+  border: 2px solid #004080;
+}
+
+/* Search Bar */
+.search-section {
+  background: #eee;
+  padding: 1rem;
+  text-align: center;
+}
+
+#searchBar {
+  width: 60%;
+  max-width: 400px;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Section Titles */
+.section {
+  padding: 3rem 1rem;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #004080;
+}
+
+/* Courses List */
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+/* Staff Cards */
+.staff-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.staff-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.staff-card:hover {
+  transform: translateY(-5px);
+}
+
+.staff-card img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 2rem;
+  border-radius: 6px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.close-btn {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Testimonials */
+.testimonials blockquote {
+  font-style: italic;
+  border-left: 4px solid #004080;
+  margin: 1rem auto;
+  padding-left: 1rem;
+  max-width: 600px;
+  background: #f1f9ff;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+/* Alumni Section */
+.alumni-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.alumni-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.alumni-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.alumni-card h3 {
+  color: #004080;
+  margin-bottom: 0.3rem;
+}
+
+.alumni-story {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+form input, form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+form button {
+  background: #004080;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Newsletter */
+.newsletter {
+  background: #004080;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.newsletter input[type="email"] {
+  padding: 0.5rem;
+  width: 250px;
+  border: none;
+  border-radius: 4px;
+}
+
+.newsletter button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  background: #fff;
+  color: #004080;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.success-msg {
+  margin-top: 1rem;
+  color: #00ffae;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: #00264d;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
