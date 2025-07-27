@@ -1,53 +1,61 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Dashboard - School Portal</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard – Global Uni</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/dark-mode.css" />
+  <link rel="icon" href="assets/img/favicon.png" />
 </head>
+
 <body>
-  <header>
-    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="assignments.html">Assignments</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><button id="logoutBtn" class="btn logout-btn">Logout</button></li>
-      </ul>
+  <header class="navbar">
+    <div class="nav-start">
+      <button id="menuToggle" aria-label="Toggle menu">☰</button>
+      <img src="assets/img/logo.png" alt="Global Uni Logo" class="logo" />
+      <h1 class="site-title">Global Uni</h1>
+    </div>
+    <nav id="mainNav" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="#logout">Logout</a>
     </nav>
+    <div class="auth-block">
+      <span id="userBadge">
+        <img src="assets/img/avatar.png" alt="User avatar" class="avatar" />
+        Welcome, <span id="userName">Student</span>
+      </span>
+      <div class="theme-switch">
+        <label class="toggle-container">
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider"></span> 🌙
+        </label>
+      </div>
+    </div>
   </header>
 
-  <main class="dashboard-content">
-    <h2>Welcome, <span id="userName"></span></h2>
+  <main class="dashboard">
+    <section class="welcome-section">
+      <h2>Welcome to Your Dashboard</h2>
+      <p>Here you can view your enrolled courses, check your timetable, submit assignments, and track progress.</p>
+    </section>
 
-    <section class="dashboard-section">
-      <h3>Student Dashboard</h3>
-      <p>Select any section from the menu to view your academic information.</p>
+    <section class="dashboard-cards">
+      <div class="dashboard-card"><h3>📘 My Courses</h3><p>Access all registered courses</p></div>
+      <div class="dashboard-card"><h3>📝 Assignments</h3><p>Submit and view results</p></div>
+      <div class="dashboard-card"><h3>📅 Schedule</h3><p>View your weekly timetable</p></div>
+      <div class="dashboard-card"><h3>📊 Grades</h3><p>Track academic performance</p></div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 School Portal. All rights reserved.</p>
+    <p>&copy; 2025 Global Uni. Student Portal.</p>
   </footer>
 
-  <script>
-    // Protect page: Only logged-in users can view
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!loggedInUser) {
-      window.location.href = "login.html";
-    } else {
-      document.getElementById("userName").textContent = loggedInUser.name || "Student";
-    }
-
-    // Logout
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      localStorage.removeItem("loggedInUser");
-      alert("You have been logged out.");
-      window.location.href = "login.html";
-    });
-  </script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
