@@ -1,40 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>School Portal - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>School Portal</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="main-header">
-    <img src="images/logo.JPG" alt="School Logo" class="logo">
-
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="assignments.html">Assignments</a></li>
-        <li><a href="results.html">Results</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-
-    <!-- ✅ Address Centered Below Menu -->
-    <div class="school-address">
-      <p>Cross River State University, Calabar Campus – PMB 1234, Calabar, Nigeria</p>
+  <!-- Header and Navigation -->
+  <header>
+    <div class="header-container">
+      <img src="images/logo.JPG" alt="School Logo" class="logo" />
+      <nav class="nav-menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="courses.html">Courses</a>
+        <a href="assignments.html">Assignments</a>
+        <a href="results.html">Results</a>
+      </nav>
     </div>
+    <div class="address-bar">Cross River State University, Calabar, Nigeria</div>
   </header>
 
-  <main class="hero">
+  <!-- Hero Section -->
+  <section class="hero">
     <h1>Welcome to the Student Portal</h1>
-    <p>Access courses, submit assignments, view your academic results and more.</p>
-    <a href="register.html" class="btn">Get Started</a>
-  </main>
+    <p>Your gateway to academic information and resources.</p>
+    <a href="login.html" class="btn">Get Started</a>
+  </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 Cross River State University. All rights reserved.</p>
+  <!-- News and Events Section -->
+  <section class="news-section">
+    <h2>Latest News & Events</h2>
+    <ul>
+      <li>📢 Matriculation holds on August 10th.</li>
+      <li>🗓️ 2nd semester exams begin September 15.</li>
+      <li>🎓 Final year clearance ongoing in admin block.</li>
+    </ul>
+  </section>
+
+  <!-- Courses Offered -->
+  <section class="courses-section">
+    <h2>Courses Offered</h2>
+    <div class="course-list">
+      <div class="course-card">Economics</div>
+      <div class="course-card">Computer Science</div>
+      <div class="course-card">Mass Communication</div>
+      <div class="course-card">Accounting</div>
+      <div class="course-card">Sociology</div>
+      <div class="course-card">Business Admin</div>
+    </div>
+  </section>
+
+  <!-- High Ranked Staff -->
+  <section class="staff-section">
+    <h2>Meet Our Top Staff</h2>
+    <div class="staff-list">
+      <div class="staff-card" onclick="showStaffProfile('Dr. Jane Smith', 'Head of Computer Science')">
+        <img src="images/staff1.jpg" alt="Dr. Jane Smith" />
+        <p>Dr. Jane Smith</p>
+        <span>Computer Science</span>
+      </div>
+      <div class="staff-card" onclick="showStaffProfile('Prof. John Doe', 'Dean of Faculty of Social Sciences')">
+        <img src="images/staff2.jpg" alt="Prof. John Doe" />
+        <p>Prof. John Doe</p>
+        <span>Social Sciences</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff Modal -->
+  <div id="staffModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="staffName"></h3>
+      <p id="staffPosition"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showStaffProfile(name, position) {
+      document.getElementById('staffName').textContent = name;
+      document.getElementById('staffPosition').textContent = position;
+      document.getElementById('staffModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('staffModal').style.display = 'none';
+    }
+
+    // Close modal on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById('staffModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
