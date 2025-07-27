@@ -1,39 +1,43 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AXYE SCHOOL | Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Portal | Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="images/logo.JPG" alt="AXYE Logo" />
-      <span>AXYE SCHOOL</span>
-    </a>
-    <nav>
-      <ul class="nav-links scrollable-nav">
-        <li><a href="dashboard.html">Dashboard</a></li>
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/logo.JPG" alt="School Logo" class="logo" />
+      </a>
+    </div>
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="login.html" class="login-btn">Login</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to AXYE School Portal</h1>
-    <p>Your gateway to academic success.</p>
-    <a href="login.html" class="btn">Get Started</a>
-  </section>
+  <main class="homepage-main">
+    <section class="hero-section">
+      <h1>Welcome to Our School Portal</h1>
+      <p>Access your courses, assignments, results, and more—all in one place.</p>
+      <div class="cta-buttons">
+        <a href="login.html" class="btn">Login</a>
+        <a href="register.html" class="btn secondary">Register</a>
+      </div>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 AXYE SCHOOL. All rights reserved.</p>
+  <footer class="main-footer">
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
