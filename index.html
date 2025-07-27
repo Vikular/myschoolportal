@@ -3,98 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>School Portal - Home</title>
+  <title>My School Portal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="header-container">
+
+  <header class="header">
+    <div class="logo-section">
       <img src="images/logo.JPG" alt="School Logo" class="logo" />
-      <div class="school-name">My School Name</div>
+      <div class="school-name">My School Portal</div>
     </div>
-    <p class="school-address">123 Campus Road, Nigeria</p>
-    <nav>
-      <ul class="nav">
+    <nav class="navbar">
+      <ul class="nav-menu">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="login.html">Login</a></li>
         <li><a href="register.html">Register</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="assignments.html">Assignments</a></li>
         <li><a href="results.html">Results</a></li>
-        <li><a href="profile.html">Profile</a></li>
       </ul>
     </nav>
+    <div class="school-address">123 Campus Way, Nigeria</div>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Welcome to Our School Portal</h1>
-      <p>Your gateway to academic success and school management.</p>
+      <h1>Welcome to My School Portal</h1>
+      <p>Your gateway to academic excellence</p>
+      <a href="login.html" class="btn">Get Started</a>
     </section>
 
     <section class="news-events">
-      <h2>News & Events</h2>
-      <ul>
-        <li>🗓️ Matriculation Ceremony - August 15</li>
-        <li>🎓 Convocation 2025 - October 20</li>
-        <li>📢 Online Exams Portal Opens - September 1</li>
+      <h2>Latest News & Events</h2>
+      <ul class="news-list">
+        <li>🎉 Matriculation Ceremony – Aug 15</li>
+        <li>📝 Second Semester Exams – Sept 10</li>
+        <li>🎓 Convocation – Oct 3</li>
       </ul>
     </section>
 
-    <section class="courses-section">
+    <section class="courses-offered">
       <h2>Courses Offered</h2>
-      <ul>
-        <li>Computer Science</li>
-        <li>Economics</li>
-        <li>Business Admin</li>
-        <li>Education & Political Science</li>
-      </ul>
+      <div class="course-grid">
+        <div class="course-card">Economics</div>
+        <div class="course-card">Computer Science</div>
+        <div class="course-card">Political Science</div>
+        <div class="course-card">Accounting</div>
+      </div>
     </section>
 
     <section class="staff-section">
       <h2>High Ranked Staff</h2>
-      <div class="staff-container">
-        <div class="staff-card" onclick="showStaffModal('Dr. Jane Doe', 'Vice Chancellor')">
-          <img src="images/staff1.jpg" alt="Staff 1" />
-          <p>Dr. Jane Doe</p>
+      <div class="staff-grid">
+        <div class="staff-card" onclick="showStaffModal('Dr. Grace', 'Dean of Faculty')">
+          <img src="images/staff1.jpg" alt="Staff 1">
+          <p>Dr. Grace</p>
         </div>
-        <div class="staff-card" onclick="showStaffModal('Prof. John Smith', 'Dean of Studies')">
-          <img src="images/staff2.jpg" alt="Staff 2" />
-          <p>Prof. John Smith</p>
+        <div class="staff-card" onclick="showStaffModal('Prof. John', 'Head of Department')">
+          <img src="images/staff2.jpg" alt="Staff 2">
+          <p>Prof. John</p>
         </div>
       </div>
     </section>
   </main>
 
-  <div id="staffModal" class="modal">
+  <footer>
+    <p>&copy; 2025 My School Portal. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="staffModal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <span class="close-btn" onclick="closeModal()">&times;</span>
       <h3 id="staffName"></h3>
-      <p id="staffRole"></p>
+      <p id="staffTitle"></p>
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 School Portal. All rights reserved.</p>
-  </footer>
-
   <script>
-    function showStaffModal(name, role) {
-      document.getElementById("staffName").innerText = name;
-      document.getElementById("staffRole").innerText = role;
-      document.getElementById("staffModal").style.display = "block";
+    function showStaffModal(name, title) {
+      document.getElementById('staffName').textContent = name;
+      document.getElementById('staffTitle').textContent = title;
+      document.getElementById('staffModal').style.display = 'block';
     }
 
     function closeModal() {
-      document.getElementById("staffModal").style.display = "none";
+      document.getElementById('staffModal').style.display = 'none';
     }
 
-    // Hide modal if clicked outside
-    window.onclick = function (event) {
-      if (event.target == document.getElementById("staffModal")) {
-        closeModal();
+    // Close modal on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById('staffModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
       }
     };
   </script>
+
 </body>
 </html>
