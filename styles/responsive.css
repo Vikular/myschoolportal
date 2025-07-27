@@ -1,1 +1,123 @@
+/* responsive.css */
 
+/* Base mobile styles (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: var(--bg-color);
+  }
+
+  .nav-links a {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid var(--border-light);
+  }
+
+  #menuToggle {
+    display: block;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Auth Block */
+  .auth-block {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  /* Hero Section / Announcement */
+  #announcementBar {
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Course Grid */
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Features Grid */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: center;
+  }
+
+  /* Schedule Table */
+  .schedule-table thead {
+    display: none;
+  }
+
+  .schedule-table tr {
+    display: block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .schedule-table td {
+    display: block;
+    padding: 5px 0;
+  }
+
+  /* Campus Tour Video */
+  .video-container iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  /* Chat Box */
+  #chatBox {
+    bottom: 60px;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* Login Modal */
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.2rem;
+  }
+
+  .course-card h4,
+  .feature-card h4 {
+    font-size: 1rem;
+  }
+
+  .stats-grid div strong {
+    font-size: 1.5rem;
+  }
+}
