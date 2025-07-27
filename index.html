@@ -19,7 +19,7 @@
   <!-- Announcement Bar -->
   <div id="announcementBar">📢 Admissions Open for 2025! Apply Now!</div>
 
-  <!-- Header -->
+  <!-- Header / Navbar -->
   <header class="navbar">
     <div class="nav-start">
       <button id="menuToggle" aria-label="Toggle menu">☰</button>
@@ -77,13 +77,22 @@
   <section id="courses" aria-labelledby="coursesHeading">
     <h3 id="coursesHeading">Course Explorer</h3>
     <div class="course-grid">
-      <div class="course-card" data-id="1"><h4>Physics BSc</h4><p>Fundamental nature of reality.</p></div>
-      <div class="course-card" data-id="2"><h4>Graphic Design BA</h4><p>Creativity & technology.</p></div>
-      <div class="course-card" data-id="3"><h4>Business Admin</h4><p>Leadership & management.</p></div>
+      <div class="course-card" data-id="1">
+        <h4>Physics BSc</h4>
+        <p>Fundamental nature of reality.</p>
+      </div>
+      <div class="course-card" data-id="2">
+        <h4>Graphic Design BA</h4>
+        <p>Creativity & technology.</p>
+      </div>
+      <div class="course-card" data-id="3">
+        <h4>Business Admin</h4>
+        <p>Leadership & management.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Course Modal -->
+  <!-- Course Detail Modal -->
   <div id="courseModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="courseTitle">
     <div class="modal-content">
       <button class="close" aria-label="Close course detail">&times;</button>
@@ -96,12 +105,14 @@
   <section id="schedule" aria-labelledby="scheduleHeading">
     <h3 id="scheduleHeading">My Schedule</h3>
     <table class="schedule-table">
-      <thead><tr><th>Time</th><th>Course</th><th>Room</th></tr></thead>
+      <thead>
+        <tr><th>Time</th><th>Course</th><th>Room</th></tr>
+      </thead>
       <tbody id="scheduleBody"></tbody>
     </table>
   </section>
 
-  <!-- Features -->
+  <!-- Why Global Uni -->
   <section id="whyGlobalUni" aria-labelledby="featuresHeading">
     <h3 id="featuresHeading">Why Choose Global Uni?</h3>
     <div class="features-grid">
