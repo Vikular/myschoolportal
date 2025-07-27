@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Login - AXYE School</title>
+  <title>Student Login</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="login.js" defer></script>
 </head>
 <body class="login-page">
+
   <div class="login-container">
-    <img src="images/logo.JPG" alt="AXYE School Logo" class="login-logo">
+    <img src="images/logo.JPG" alt="AXYE Logo" class="login-logo" />
     <h2>Student Login</h2>
     <form id="loginForm">
-      <input type="text" placeholder="Username" id="username" required />
-      <input type="password" placeholder="Password" id="password" required />
-      <button type="submit" class="btn">Login</button>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
     </form>
+    <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
   </div>
+
+  <script src="login.js"></script>
 </body>
 </html>
