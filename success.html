@@ -1,31 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Success</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <img src="images/logo.JPG" alt="School Logo" class="logo" onclick="window.location.href='index.html'" />
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="register.html">Register</a></li>
-      </ul>
-    </nav>
-  </header>
+/* Reset & Global */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; transition: background .3s, color .3s; }
+a { color: #0077cc; text-decoration: none; }
+a:hover, button:hover, select:hover, input:hover { opacity: .9; }
+button:focus, input:focus, select:focus { outline: 2px solid #0077cc; outline-offset: 2px; }
 
-  <main class="success-page">
-    <h1>Success!</h1>
-    <p>Your action was completed successfully.</p>
-    <a href="dashboard.html" class="btn">Go to Dashboard</a>
-  </main>
+/* Dark Mode */
+body.dark-mode { background: #111; color: #eee; }
 
-  <footer>
-    <p>&copy; 2025 School Portal. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+/* Preloader & Announcement */
+#preloader { position: fixed; inset: 0; background: #fff; z-index: 9999; }
+#announcementBar { background: #ffd700; color: #000; padding: 10px; text-align: center; font-weight: bold; }
+
+/* Header & Nav */
+header.navbar { display: flex; align-items: center; justify-content: space-between; background: #004080; color: white; padding: 10px 20px; flex-wrap: wrap; }
+.nav-start { display: flex; align-items: center; gap: 10px; }
+#menuToggle { display: none; background: none; border: none; font-size: 1.5rem; color: white; }
+.logo { height: 50px; }
+.site-title { font-size: 1.8rem; }
+.nav-links { display: flex; gap: 15px; list-style: none; }
+.nav-links a { color: white; font-size: 1rem; }
+
+/* Auth block */
+.auth-block { display: flex; align-items: center; gap: 10px; }
+.auth-block button { padding: 5px 10px; background: #0077cc; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; vertical-align: middle; }
+
+/* Mobile Nav */
+#mainNav { transition: max-height .3s ease; max-height: 1000px; overflow: hidden; }
+@media (max-width: 768px) {
+  #menuToggle { display: block; }
+  .nav-links { flex-direction: column; width: 100%; }
+  #mainNav { max-height: 0; }
+  #mainNav.open { max-height: 300px; }
+}
+
+/* Modal */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: white; padding: 20px; border-radius: 5px; width: 90%; max-width: 400px; position: relative; }
+.modal .close { position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.2rem; cursor: pointer; }
+
+/* Search & Autocomplete */
+.search-bar { position: relative; margin: 20px auto; width: 60%; max-width: 400px; }
+.autocomplete { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ccc; list-style: none; margin: 0; padding: 0; max-height: 150px; overflow-y: auto; z-index: 999; }
+.autocomplete li { padding: 8px; cursor: pointer; }
+.autocomplete li:hover { background: #f0f0f0; }
+
+/* Courses */
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 15px; padding: 0 20px; }
+.course-card { padding: 15px; border: 1px solid #ccc; border-radius: 4px; background: white; cursor: pointer; }
+
+/* Schedule */
+.schedule-table { width: 100%; border-collapse: collapse; margin: 20px; }
+.schedule-table th, .schedule-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+
+/* Chat & Footer */
+#liveChat { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+#chatToggle { padding: 10px; font-size: 1.5rem; background: #0077cc; color: white; border: none; border-radius: 50%; cursor: pointer; }
+#chatBox { background: white; border: 1px solid #ccc; padding: 10px; margin-top: 5px; width: 250px; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+#chatBox input { width: 100%; padding: 8px; margin-top: 10px; border: 1px solid #ccc; }
+.hidden { display: none; }
+footer { text-align: center; padding: 20px; background: #004080; color: white; }
