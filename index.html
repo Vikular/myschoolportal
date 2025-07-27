@@ -1,120 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Global Uni – Premier Education Portal for Higher Learning" />
-  <meta name="keywords" content="University, Global Uni, Education, Courses, Admissions" />
-  <meta name="author" content="Global Uni Team" />
-  <title>Global Uni | Home</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
-
-  <!-- Styles -->
+  <meta name="description" content="Global Uni – Empowering Education, Globally." />
+  <title>Global Uni</title>
+  <link rel="icon" href="assets/images/favicon.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
   <link rel="stylesheet" href="assets/css/dark-mode.css" />
-
-  <!-- AOS Animation (Optional) -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-
-  <!-- Scripts -->
-  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <nav class="container flex space-between align-center">
-      <div class="logo">
-        <a href="#">Global Uni</a>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="index.html" class="active">Home</a></li>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="logo">Global Uni</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="#courses">Courses</a></li>
+        <li><a href="#">Courses</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="theme-toggle">
-        <button id="themeToggle" aria-label="Toggle Theme">🌓</button>
-      </div>
+      <button class="theme-toggle" id="themeToggle">🌓</button>
+      <div class="mobile-toggle" onclick="toggleMobileNav()">☰</div>
     </nav>
+    <div class="announcement-banner" id="announcementBanner">🎓 Welcome to Global Uni Portal!</div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <div class="container text-center">
-      <h1>Welcome to Global Uni</h1>
-      <p>Your gateway to excellence in education, innovation, and research.</p>
-      <a href="#courses" class="btn btn-primary">Explore Courses</a>
+    <h1>Empowering Education, Globally</h1>
+    <p>Your gateway to quality education and student success</p>
+    <div class="cta-buttons">
+      <a href="register.html" class="btn">Get Started</a>
+      <a href="login.html" class="btn secondary">Log In</a>
     </div>
   </section>
 
-  <!-- Why Choose Us -->
-  <section class="why-choose-us section">
-    <div class="container">
-      <h2 class="section-title">Why Choose Global Uni?</h2>
-      <div class="grid-3">
-        <div class="card">Top Faculty</div>
-        <div class="card">World-Class Programs</div>
-        <div class="card">Global Opportunities</div>
-      </div>
-    </div>
-  </section>
+  <!-- Sections: Why Choose Us, Programs, Testimonials, Events, Virtual Tour, Newsletter, Help Desk, App Promo, etc. -->
+  <!-- Content loaded dynamically or added below here in modular structure -->
 
-  <!-- Courses Section -->
-  <section id="courses" class="section alt-bg">
-    <div class="container">
-      <h2 class="section-title">Popular Programs</h2>
-      <div class="grid-4">
-        <div class="card">Computer Science</div>
-        <div class="card">Economics</div>
-        <div class="card">Engineering</div>
-        <div class="card">Public Health</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Signup -->
-  <section class="newsletter">
-    <div class="container text-center">
-      <h2>Join Our Newsletter</h2>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-      <p id="newsletterMessage" class="text-muted mt-2"></p>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title text-center">Contact Us</h2>
-      <form id="contactForm" class="contact-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-      <p id="contactMessage" class="text-muted text-center mt-2"></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> Global Uni. All rights reserved.</p>
-    </div>
+    <p>&copy; 2025 Global Uni. All rights reserved.</p>
   </footer>
 
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
