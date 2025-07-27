@@ -1,384 +1,92 @@
-/* ========== Global Reset ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Global Uni – A Modern University Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="preloader"></div>
+  <div id="announcementBar">📢 Admissions Open for 2025! Apply Now!</div>
 
-html {
-  scroll-behavior: smooth;
-}
+  <header class="navbar">
+    <div class="nav-start">
+      <button id="menuToggle">☰</button>
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1 class="site-title">Global Uni</h1>
+    </div>
+    <nav id="mainNav" class="nav-links">
+      <a href="#">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="auth-block">
+      <span id="userBadge" class="hidden"><img src="avatar.png" alt="Avatar" class="avatar" /> Welcome, <span id="userName"></span></span>
+      <button id="loginBtn">Login</button>
+    </div>
+  </header>
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
-}
+  <main>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <h2>Student Login</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button id="loginSubmit">Login</button>
+      </div>
+    </div>
 
-a {
-  color: #0077cc;
-  text-decoration: none;
-}
+    <!-- Search -->
+    <div class="search-bar" role="search">
+      <input id="searchInput" type="text" placeholder="Search courses..." autocomplete="off" />
+      <ul id="autocompleteList" class="autocomplete hidden"></ul>
+    </div>
 
-a:hover {
-  text-decoration: underline;
-}
+    <!-- Courses Section -->
+    <section id="courses">
+      <h3>Course Explorer</h3>
+      <div class="course-grid">
+        <div class="course-card" data-id="1">
+          <h4>Physics BSc</h4><p>Fundamental nature of reality.</p>
+        </div>
+        <div class="course-card" data-id="2">
+          <h4>Graphic Design BA</h4><p>Creativity & technology.</p>
+        </div>
+        <div class="course-card" data-id="3">
+          <h4>Business Admin</h4><p>Leadership & management.</p>
+        </div>
+      </div>
+    </section>
 
-/* ========== Dark Mode ========== */
-body.dark-mode {
-  background-color: #111;
-  color: #eee;
-}
+    <!-- Course Detail Modal -->
+    <div id="courseModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <h2 id="courseTitle"></h2>
+        <p id="courseDesc"></p>
+      </div>
+    </div>
 
-/* ========== Preloader ========== */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #fff;
-  z-index: 9999;
-}
+    <!-- Student Schedule -->
+    <section id="schedule">
+      <h3>My Schedule</h3>
+      <table class="schedule-table">
+        <thead>
+          <tr><th>Time</th><th>Course</th><th>Room</th></tr>
+        </thead>
+        <tbody id="scheduleBody">
+          <!-- dynamic -->
+        </tbody>
+      </table>
+    </section>
 
-/* ========== Announcement Bar ========== */
-#announcementBar {
-  background-color: #ffd700;
-  color: #000;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-}
+    <!-- Other existing sections... -->
+  </main>
 
-/* ========== Header ========== */
-header.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #004080;
-  color: white;
-  padding: 10px 20px;
-  flex-wrap: wrap;
-}
-
-.nav-start {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#menuToggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: white;
-}
-
-.logo {
-  height: 50px;
-}
-
-.site-title {
-  font-size: 1.8rem;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-links a,
-.nav-links button,
-.nav-links select {
-  color: white;
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.nav-links select {
-  background-color: white;
-  color: #004080;
-  padding: 3px 5px;
-  border-radius: 4px;
-}
-
-/* Mobile nav toggle */
-#mainNav {
-  transition: max-height 0.3s ease;
-  max-height: 1000px;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  #menuToggle {
-    display: block;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  #mainNav {
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  #mainNav.open {
-    max-height: 500px;
-  }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .search-bar input {
-    width: 80%;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #chatBox {
-    width: 90vw;
-    right: 5vw;
-  }
-}
-
-/* ========== Hero Section ========== */
-.hero {
-  padding: 50px 20px;
-  text-align: center;
-  background: url('assets/img/hero-bg.jpg') no-repeat center center/cover;
-  color: white;
-}
-
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-}
-
-.cta-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.btn {
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-
-.btn.primary {
-  background-color: #0077cc;
-  color: white;
-}
-
-.btn.secondary {
-  background-color: white;
-  color: #0077cc;
-  border: 1px solid #0077cc;
-}
-
-/* ========== Search ========== */
-.search-bar {
-  margin: 30px auto;
-  text-align: center;
-}
-
-.search-bar input {
-  padding: 10px;
-  width: 60%;
-  max-width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-bar button {
-  padding: 10px;
-  margin-left: 5px;
-}
-
-/* ========== Filters & Course Grid ========== */
-.filters {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  padding: 6px 12px;
-  border: 1px solid #0077cc;
-  border-radius: 4px;
-  cursor: pointer;
-  background: #fff;
-  color: #0077cc;
-}
-
-.filter-btn.active {
-  background: #0077cc;
-  color: #fff;
-}
-
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.course-card {
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: white;
-}
-
-/* ========== News Feed ========== */
-.news-feed {
-  overflow: hidden;
-  height: 2.5em;
-  background: #eef;
-  padding: 10px;
-}
-
-.news-item {
-  line-height: 2.5em;
-  white-space: nowrap;
-  animation: scrollNews 3s linear infinite;
-}
-
-@keyframes scrollNews {
-  0% { transform: translateY(0%); }
-  100% { transform: translateY(-100%); }
-}
-
-/* ========== Calendar ========== */
-#calendar table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-#calendar th, #calendar td {
-  border: 1px solid #ccc;
-  text-align: center;
-  padding: 5px;
-}
-
-#calendar td.has-event {
-  background-color: #ffd700;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* ========== Testimonials ========== */
-#testimonials {
-  padding: 30px 20px;
-  background-color: #f1f1f1;
-  text-align: center;
-}
-
-.testimonial {
-  max-width: 600px;
-  margin: auto;
-  font-style: italic;
-}
-
-/* ========== Newsletter ========== */
-#newsletter form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#newsletter input[type="email"] {
-  padding: 10px;
-  margin: 10px 0;
-  width: 300px;
-  max-width: 80%;
-}
-
-#newsletter button {
-  padding: 10px 20px;
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#newsletterFeedback {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* ========== Footer ========== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #004080;
-  color: white;
-}
-
-/* ========== Live Chat ========== */
-#liveChat {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-}
-
-#chatToggle {
-  padding: 10px;
-  font-size: 1.5rem;
-  border: none;
-  background-color: #0077cc;
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-#chatBox {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 5px;
-  width: 250px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-#chatBox input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-}
-
-/* ========== Utility ========== */
-.hidden {
-  display: none;
-}
+  <script src="main.js"></script>
+</body>
+</html>
