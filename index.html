@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF‑8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Global Uni – A Modern University Portal</title>
-  <meta name="description" content="Global Uni – A student-centered educational platform">
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="Global Uni Team" />
-  <link rel="canonical" href="https://www.globaluni.edu/" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Global Uni – A student‑centered educational platform">
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Global Uni Team"/>
+  <link rel="canonical" href="https://www.globaluni.edu/"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div id="preloader" role="status" aria-label="Page loading..."></div>
+  <div id="preloader" role="status" aria-label="Loading…"></div>
   <div id="announcementBar" role="banner">📢 Admissions Open for 2025! Apply Now!</div>
 
   <header class="navbar">
@@ -28,7 +28,7 @@
     </nav>
     <div class="auth-block">
       <span id="userBadge" class="hidden">
-        <img src="assets/img/avatar.png" alt="Avatar" class="avatar" />
+        <img src="assets/img/avatar.png" alt="User avatar" class="avatar"/>
         Welcome, <span id="userName"></span>
       </span>
       <button id="loginBtn">Login</button>
@@ -43,21 +43,21 @@
         <h2 id="loginTitle">Student Login</h2>
         <form id="loginForm" onsubmit="event.preventDefault();">
           <label for="username">Username</label>
-          <input type="text" id="username" placeholder="Username" required />
+          <input type="text" id="username" placeholder="Username" required/>
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Password" required />
+          <input type="password" id="password" placeholder="Password" required/>
           <button type="submit" id="loginSubmit">Login</button>
         </form>
       </div>
     </div>
 
-    <!-- Search -->
+    <!-- Search Autocomplete -->
     <div class="search-bar" role="search">
-      <input id="searchInput" type="text" placeholder="Search courses..." autocomplete="off" aria-label="Search courses" />
+      <input id="searchInput" type="text" placeholder="Search courses..." autocomplete="off" aria-label="Search courses"/>
       <ul id="autocompleteList" class="autocomplete hidden" role="listbox"></ul>
     </div>
 
-    <!-- Courses -->
+    <!-- Courses Section -->
     <section id="courses" aria-labelledby="coursesHeading">
       <h3 id="coursesHeading">Course Explorer</h3>
       <div class="course-grid">
@@ -92,20 +92,15 @@
     </section>
   </main>
 
-  <!-- Chat Box -->
   <div id="liveChat">
     <button id="chatToggle" aria-label="Open chat">💬 Chat</button>
     <div id="chatBox" class="hidden" aria-live="polite">
       <p>Hello! How can we help?</p>
-      <input type="text" placeholder="Type your message..." aria-label="Chat input" />
+      <input type="text" placeholder="Type your message…" aria-label="Chat input"/>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <p>&copy; 2025 Global Uni. All rights reserved.</p>
-  </footer>
-
+  <footer role="contentinfo"><p>&copy; 2025 Global Uni. All rights reserved.</p></footer>
   <script src="main.js" defer></script>
 </body>
 </html>
