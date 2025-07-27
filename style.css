@@ -1,192 +1,175 @@
-/* Reset and base styles */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background-color: #f5f7fa;
+  background-color: #f9f9f9;
   color: #333;
 }
 
 /* Header */
 .main-header {
-  background-color: #004080;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  background-color: #003366;
+  color: white;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  position: relative;
 }
+
 .logo {
-  width: 120px;
-  height: auto;
+  max-width: 100px;
+  display: block;
+  margin: 0 auto 10px;
 }
+
+/* Navigation */
 .main-nav ul {
   display: flex;
-  gap: 15px;
+  justify-content: center;
+  flex-wrap: nowrap;
   list-style: none;
   overflow-x: auto;
-  padding: 0;
-  margin: 10px 0;
-}
-.main-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 14px;
-  transition: background 0.3s ease;
   white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
 }
-.main-nav a:hover,
-.main-nav a.active {
-  background-color: #0066cc;
-  border-radius: 5px;
+
+.main-nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.main-nav ul li a.active,
+.main-nav ul li a:hover {
+  background-color: #0055aa;
+  border-radius: 4px;
+}
+
+/* School Address Below Navigation */
+.school-address {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
 /* Hero Section */
-.hero-section {
-  background-color: #cce5ff;
+.hero {
+  background-color: #e6f0ff;
+  padding: 2rem 1rem;
   text-align: center;
-  padding: 60px 20px;
-}
-.hero-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-.hero-section p {
-  font-size: 1.2rem;
 }
 
-/* Section Styles */
-section {
-  padding: 40px 20px;
-}
-h2 {
-  font-size: 1.8rem;
-  color: #004080;
-  margin-bottom: 20px;
+.hero h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #003366;
 }
 
-/* News Section */
-.news-cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.news-card {
-  background-color: #ffffff;
-  padding: 20px;
-  border-left: 5px solid #004080;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex: 1 1 280px;
-}
-.news-card h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-/* Courses Section */
-.course-list {
-  list-style: none;
-  padding-left: 0;
-}
-.course-list li {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 12px 16px;
-  border-left: 4px solid #0066cc;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* Staff Cards */
-.staff-cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.staff-card {
-  background-color: #ffffff;
-  text-align: center;
-  padding: 15px;
-  flex: 1 1 200px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.staff-card:hover {
-  transform: translateY(-5px);
-}
-.staff-card img {
-  width: 100%;
-  max-width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-.staff-card h3 {
+.hero p {
   font-size: 1.1rem;
-  color: #004080;
+  color: #555;
 }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
-}
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 30px;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 8px;
-  position: relative;
-  animation: fadeIn 0.3s ease-in-out;
-}
-.close-btn {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 24px;
-  color: #333;
+.btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #003366;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
+
+.btn:hover {
+  background-color: #0055aa;
 }
 
 /* Footer */
-.main-footer {
-  background-color: #004080;
+.footer {
+  background-color: #003366;
   color: #fff;
   text-align: center;
-  padding: 15px 10px;
+  padding: 1rem 0.5rem;
+  margin-top: 2rem;
   font-size: 0.9rem;
-  margin-top: 40px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .main-nav ul {
-    gap: 10px;
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #003366;
+  text-align: center;
+}
+
+/* Cards (e.g., for staff or courses) */
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+/* Modal (for staff profile) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.close-modal {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
   }
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-  .hero-section p {
+
+  .btn {
     font-size: 1rem;
-  }
-  .modal-content {
-    margin-top: 30%;
   }
 }
