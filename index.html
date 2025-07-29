@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Uni | Welcome</title>
-  <meta name="description" content="Global Uni – A student-centered portal for global education.">
+  <meta name="description" content="Global Uni – A student-centered portal for global education." />
   <link rel="icon" href="assets/images/favicon.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
@@ -13,18 +13,15 @@
 </head>
 <body>
 
-  <!-- Global Header -->
-  <div id="globalHeader"></div>
+  <div id="globalHeader" role="banner"></div>
 
-  <!-- Announcement Bar -->
-  <div class="announcement-bar" id="announcementBar">
+  <aside class="announcement-bar" id="announcementBar" aria-live="polite">
     📢 Applications for 2025 admissions are now open! <a href="register.html">Apply Now</a>
-  </div>
+  </aside>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-content">
-      <h1>Empowering Education, Globally</h1>
+      <h1 id="hero-heading">Empowering Education, Globally</h1>
       <p>Your gateway to quality education and student success</p>
       <div class="cta-buttons">
         <a href="register.html" class="btn primary">Get Started</a>
@@ -33,13 +30,12 @@
     </div>
   </section>
 
-  <!-- Search -->
   <div class="search-bar" role="search">
-    <input type="text" id="searchInput" placeholder="Search courses..." aria-label="Search courses" />
+    <label for="searchInput" class="sr-only">Search courses</label>
+    <input type="text" id="searchInput" placeholder="Search courses..." aria-autocomplete="list" aria-controls="autocompleteList" />
     <ul id="autocompleteList" class="autocomplete hidden" role="listbox"></ul>
   </div>
 
-  <!-- Why Choose Global Uni -->
   <section id="whyGlobalUni" class="info-section">
     <h2>Why Choose Global Uni?</h2>
     <div class="features-grid">
@@ -52,7 +48,6 @@
     </div>
   </section>
 
-  <!-- Courses -->
   <section id="courses" class="info-section">
     <h2>Our Programs</h2>
     <div class="course-grid">
@@ -71,7 +66,6 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
   <section class="info-section alt">
     <h2>What Our Students Say</h2>
     <div class="testimonial-grid">
@@ -86,72 +80,71 @@
     </div>
   </section>
 
-  <!-- Featured Staff -->
   <section class="info-section" id="staff">
     <h2>Meet Our Top Faculty</h2>
     <div class="staff-grid">
-      <div class="staff-card" data-name="Prof. John Doe" data-bio="AI & Machine Learning Expert">
-        <img src="assets/images/staff1.jpg" alt="Prof. John Doe" />
+      <div class="staff-card" data-name="Prof. John Doe" data-bio="AI & Machine Learning Expert" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/images/staff1.jpg" alt="Prof. John Doe, Computer Science" />
         <h4>Prof. John Doe</h4>
         <p>Computer Science</p>
       </div>
-      <div class="staff-card" data-name="Dr. Mary Jane" data-bio="Global Affairs Researcher">
-        <img src="assets/images/staff2.jpg" alt="Dr. Mary Jane" />
+      <div class="staff-card" data-name="Dr. Mary Jane" data-bio="Global Affairs Researcher" tabindex="0" role="button" aria-haspopup="dialog">
+        <img src="assets/images/staff2.jpg" alt="Dr. Mary Jane, International Relations" />
         <h4>Dr. Mary Jane</h4>
         <p>International Relations</p>
       </div>
     </div>
   </section>
 
-  <!-- Staff Modal -->
-  <div id="staffModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div id="staffModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="staffName">
     <div class="modal-content">
-      <span class="close" id="closeStaffModal">&times;</span>
+      <button class="close" id="closeStaffModal" aria-label="Close staff details">×</button>
       <h3 id="staffName"></h3>
       <p id="staffBio"></p>
     </div>
   </div>
 
-  <!-- Newsletter Signup -->
   <section class="info-section newsletter" id="newsletter">
     <h2>Stay Updated</h2>
     <form id="newsletterForm">
-      <input type="email" placeholder="Enter your email" required />
+      <label for="newsletterEmail" class="sr-only">Enter your email</label>
+      <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
       <button type="submit">Subscribe</button>
     </form>
-    <p class="success-message" id="newsletterSuccess" hidden>✅ You’ve subscribed successfully!</p>
+    <p class="success-message" id="newsletterSuccess" role="status" hidden>✅ You’ve subscribed successfully!</p>
   </section>
 
-  <!-- Virtual Tour -->
   <section class="info-section alt">
     <h2>Virtual Tour</h2>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/kL6CEKTc8Rc" allowfullscreen loading="lazy"></iframe>
+      <iframe src="http://googleusercontent.com/youtube.com/6"
+        title="Global Uni Virtual Campus Tour"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </section>
 
-  <!-- Contact/Help Desk -->
   <section class="info-section" id="contact">
     <h2>Contact / Help Desk</h2>
-    <p>Email: support@globaluni.edu | Phone: +234‑800‑123‑4567</p>
+    <p>Email: <a href="mailto:support@globaluni.edu">support@globaluni.edu</a> | Phone: <a href="tel:+2348001234567">+234‑800‑123‑4567</a></p>
   </section>
 
-  <!-- Live Chat -->
   <div id="liveChat">
-    <button id="chatToggle" aria-label="Open chat">💬 Chat</button>
-    <div id="chatBox" class="hidden">
+    <button id="chatToggle" aria-label="Open live chat">💬 Chat</button>
+    <div id="chatBox" class="hidden" role="dialog" aria-labelledby="chatHeading">
+      <h3 id="chatHeading" class="sr-only">Live Chat</h3>
       <p>👋 Hello! How can we help?</p>
-      <input type="text" placeholder="Type a message..." />
+      <label for="chatInput" class="sr-only">Type your message</label>
+      <input type="text" id="chatInput" placeholder="Type a message..." />
     </div>
   </div>
 
-  <!-- Floating CTA -->
   <a href="register.html" class="floating-cta">Enroll Now</a>
 
-  <!-- Global Footer -->
-  <div id="globalFooter"></div>
+  <div id="globalFooter" role="contentinfo"></div>
 
-  <!-- Scripts -->
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/includes.js" defer></script>
 </body>
