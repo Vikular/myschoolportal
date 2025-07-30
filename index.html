@@ -3,149 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Global Uni - A world-class education portal" />
+  <meta name="keywords" content="university, global, portal, education" />
+  <meta name="author" content="Global Uni Team" />
   <title>Global Uni | Welcome</title>
-  <meta name="description" content="Global Uni – A student-centered portal for global education." />
-  <link rel="icon" href="assets/images/favicon.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
   <link rel="stylesheet" href="assets/css/dark-mode.css" />
+  <link rel="icon" href="assets/images/favicon.png" />
 </head>
 <body>
 
-  <div id="globalHeader" role="banner"></div>
+  <!-- Header (Injected) -->
+  <div id="header-include"></div>
 
-  <aside class="announcement-bar" id="announcementBar" aria-live="polite">
-    📢 Applications for 2025 admissions are now open! <a href="register.html">Apply Now</a>
-  </aside>
-
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero-content">
-      <h1 id="hero-heading">Empowering Education, Globally</h1>
-      <p>Your gateway to quality education and student success</p>
-      <div class="cta-buttons">
-        <a href="register.html" class="btn primary">Get Started</a>
-        <a href="login.html" class="btn secondary">Login</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Welcome to Global Uni</h1>
+      <p>Your gateway to world-class education</p>
+      <a href="about.html" class="btn-primary">Explore More</a>
     </div>
   </section>
 
-  <div class="search-bar" role="search">
-    <label for="searchInput" class="sr-only">Search courses</label>
-    <input type="text" id="searchInput" placeholder="Search courses..." aria-autocomplete="list" aria-controls="autocompleteList" />
-    <ul id="autocompleteList" class="autocomplete hidden" role="listbox"></ul>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <marquee behavior="scroll" direction="left">
+      🚨 Admission Now Open for 2025 | 📢 New Courses Available | 📰 Read the Latest News & Events
+    </marquee>
   </div>
 
-  <section id="whyGlobalUni" class="info-section">
-    <h2>Why Choose Global Uni?</h2>
-    <div class="features-grid">
-      <div class="feature-card">🌎 International Faculty</div>
-      <div class="feature-card">💼 Global Internships</div>
-      <div class="feature-card">🏛️ Research Excellence</div>
-      <div class="feature-card">💬 Multilingual Programs</div>
-      <div class="feature-card">🧠 AI Learning Tools</div>
-      <div class="feature-card">🧳 Study Abroad</div>
-    </div>
-  </section>
-
-  <section id="courses" class="info-section">
-    <h2>Our Programs</h2>
-    <div class="course-grid">
-      <div class="course-card" data-id="1">
-        <h3>Computer Science</h3>
-        <p>Learn programming, AI, and system design</p>
+  <!-- Why Choose Us -->
+  <section class="why-choose-us">
+    <div class="container grid-3">
+      <div class="card">
+        <h3>Global Recognition</h3>
+        <p>Accredited programs recognized worldwide.</p>
       </div>
-      <div class="course-card" data-id="2">
-        <h3>Mass Communication</h3>
-        <p>Master journalism, media, and digital comms</p>
+      <div class="card">
+        <h3>Experienced Faculty</h3>
+        <p>Learn from top educators and professionals.</p>
       </div>
-      <div class="course-card" data-id="3">
-        <h3>Business Admin</h3>
-        <p>Leadership, finance, and global strategy</p>
+      <div class="card">
+        <h3>Smart Learning</h3>
+        <p>Interactive tools and remote accessibility.</p>
       </div>
     </div>
   </section>
 
-  <section class="info-section alt">
-    <h2>What Our Students Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <p>"Global Uni gave me access to amazing internships across Europe."</p>
-        <strong>– Anita, Class of 2023</strong>
-      </div>
-      <div class="testimonial-card">
-        <p>"I loved the flexibility of the platform. I could learn on my schedule."</p>
-        <strong>– Victor, Economics Student</strong>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-section" id="staff">
-    <h2>Meet Our Top Faculty</h2>
-    <div class="staff-grid">
-      <div class="staff-card" data-name="Prof. John Doe" data-bio="AI & Machine Learning Expert" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="assets/images/staff1.jpg" alt="Prof. John Doe, Computer Science" />
-        <h4>Prof. John Doe</h4>
-        <p>Computer Science</p>
-      </div>
-      <div class="staff-card" data-name="Dr. Mary Jane" data-bio="Global Affairs Researcher" tabindex="0" role="button" aria-haspopup="dialog">
-        <img src="assets/images/staff2.jpg" alt="Dr. Mary Jane, International Relations" />
-        <h4>Dr. Mary Jane</h4>
-        <p>International Relations</p>
+  <!-- Top Programs -->
+  <section class="programs-section">
+    <div class="container">
+      <h2>Top Departments</h2>
+      <div class="program-grid">
+        <div class="program-card">Computer Science</div>
+        <div class="program-card">Business Admin</div>
+        <div class="program-card">Law</div>
+        <div class="program-card">Medicine</div>
+        <div class="program-card">Engineering</div>
       </div>
     </div>
   </section>
 
-  <div id="staffModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="staffName">
-    <div class="modal-content">
-      <button class="close" id="closeStaffModal" aria-label="Close staff details">×</button>
-      <h3 id="staffName"></h3>
-      <p id="staffBio"></p>
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>What Students Say</h2>
+      <div class="testimonial-slider">
+        <blockquote>
+          "Global Uni gave me the platform to grow academically and professionally!"
+        </blockquote>
+        <p>- Grace M., Alumni</p>
+      </div>
     </div>
+  </section>
+
+  <!-- Latest News / Events -->
+  <section class="news-events-section">
+    <div class="container">
+      <h2>Latest News</h2>
+      <div id="news-feed">
+        <!-- Loaded dynamically via main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter-section">
+    <div class="container">
+      <h2>Join Our Newsletter</h2>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit" class="btn-secondary">Subscribe</button>
+      </form>
+      <p class="form-feedback" id="newsletter-feedback"></p>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <div class="floating-cta">
+    <a href="contact-help.html" title="Need Help?">
+      💬
+    </a>
   </div>
 
-  <section class="info-section newsletter" id="newsletter">
-    <h2>Stay Updated</h2>
-    <form id="newsletterForm">
-      <label for="newsletterEmail" class="sr-only">Enter your email</label>
-      <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
-      <button type="submit">Subscribe</button>
-    </form>
-    <p class="success-message" id="newsletterSuccess" role="status" hidden>✅ You’ve subscribed successfully!</p>
-  </section>
+  <!-- Footer (Injected) -->
+  <div id="footer-include"></div>
 
-  <section class="info-section alt">
-    <h2>Virtual Tour</h2>
-    <div class="video-container">
-      <iframe src="http://googleusercontent.com/youtube.com/6"
-        title="Global Uni Virtual Campus Tour"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        loading="lazy">
-      </iframe>
-    </div>
-  </section>
-
-  <section class="info-section" id="contact">
-    <h2>Contact / Help Desk</h2>
-    <p>Email: <a href="mailto:support@globaluni.edu">support@globaluni.edu</a> | Phone: <a href="tel:+2348001234567">+234‑800‑123‑4567</a></p>
-  </section>
-
-  <div id="liveChat">
-    <button id="chatToggle" aria-label="Open live chat">💬 Chat</button>
-    <div id="chatBox" class="hidden" role="dialog" aria-labelledby="chatHeading">
-      <h3 id="chatHeading" class="sr-only">Live Chat</h3>
-      <p>👋 Hello! How can we help?</p>
-      <label for="chatInput" class="sr-only">Type your message</label>
-      <input type="text" id="chatInput" placeholder="Type a message..." />
-    </div>
-  </div>
-
-  <a href="register.html" class="floating-cta">Enroll Now</a>
-
-  <div id="globalFooter" role="contentinfo"></div>
-
-  <script src="assets/js/main.js" defer></script>
+  <!-- Scripts -->
   <script src="assets/js/includes.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
