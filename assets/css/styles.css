@@ -1,6 +1,9 @@
-/* GLOBAL UNI - MASTER STYLE.CSS */
-/* Base layout, typography, forms, containers, and layout utility */
+/* =========================================================
+   GLOBAL UNI - MASTER STYLE.CSS
+   Unified base styles + login + theme + responsive nav
+   ========================================================= */
 
+/* ---------- Root Variables ---------- */
 :root {
   --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --color-primary: #0052cc;
@@ -13,7 +16,7 @@
   --transition-fast: 0.3s ease;
 }
 
-/* Reset and Base */
+/* ---------- Reset & Base ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +46,7 @@ a:hover {
   color: var(--color-accent);
 }
 
-/* Container */
+/* ---------- Containers & Spacing ---------- */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -51,12 +54,11 @@ a:hover {
   padding: 1.5rem 0;
 }
 
-/* Section spacing */
 section {
   padding: 3rem 0;
 }
 
-/* Header & Navigation */
+/* ---------- Header & Navbar ---------- */
 header {
   background-color: var(--color-light);
   border-bottom: 1px solid #e0e0e0;
@@ -95,7 +97,13 @@ header {
   background-color: var(--color-secondary);
 }
 
-/* Theme Toggle */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---------- Theme Toggle ---------- */
 .theme-toggle {
   cursor: pointer;
   background: none;
@@ -109,7 +117,37 @@ header {
   color: var(--color-primary);
 }
 
-/* Hero Section */
+/* ---------- Mobile Navigation ---------- */
+#mobileMenu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-light);
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .navbar ul.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  #mobileMenu {
+    display: block;
+  }
+}
+
+/* ---------- Hero Section ---------- */
 .hero {
   background-color: var(--color-secondary);
   padding: 4rem 2rem;
@@ -127,7 +165,7 @@ header {
   color: var(--color-gray);
 }
 
-/* Buttons */
+/* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
   background-color: var(--color-primary);
@@ -136,13 +174,14 @@ header {
   border: none;
   border-radius: var(--border-radius);
   transition: var(--transition-fast);
+  cursor: pointer;
 }
 
 .btn:hover {
   background-color: var(--color-accent);
 }
 
-/* Forms */
+/* ---------- Forms ---------- */
 form {
   width: 100%;
   max-width: 500px;
@@ -174,7 +213,74 @@ select:focus {
   border-color: var(--color-primary);
 }
 
-/* Footer */
+/* ---------- Login Page ---------- */
+.login-container {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-secondary);
+  padding: 3rem 1rem;
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+form#loginForm {
+  background: var(--color-light);
+  padding: 2rem 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"] {
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.login-links a {
+  color: var(--color-primary);
+}
+
+.login-links a:hover {
+  color: var(--color-accent);
+}
+
+/* ---------- Footer ---------- */
 footer {
   background-color: var(--color-dark);
   color: var(--color-light);
@@ -190,17 +296,11 @@ footer a:hover {
   color: var(--color-accent);
 }
 
-/* Utility Classes */
-.text-center {
-  text-align: center;
-}
-
+/* ---------- Utilities ---------- */
+.text-center { text-align: center; }
 .mt-2 { margin-top: 2rem; }
 .mb-2 { margin-bottom: 2rem; }
-
-.hidden {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
 .flex {
   display: flex;
@@ -220,7 +320,7 @@ footer a:hover {
   gap: 2rem;
 }
 
-/* Animations */
+/* ---------- Animations ---------- */
 .fade-in {
   animation: fadeIn 0.6s ease-in-out both;
 }
@@ -228,4 +328,41 @@ footer a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Dark Theme ---------- */
+[data-theme="dark"] {
+  --color-primary: #00a8e8;
+  --color-secondary: #1e2a38;
+  --color-dark: #f5f5f5;
+  --color-light: #121212;
+  --color-gray: #ccc;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+[data-theme="dark"] header {
+  background-color: var(--color-light);
+  border-bottom: 1px solid #333;
+}
+
+[data-theme="dark"] footer {
+  background-color: #000;
+  color: var(--color-gray);
+}
+
+[data-theme="dark"] .btn {
+  background-color: var(--color-primary);
+}
+
+[data-theme="dark"] .btn:hover {
+  background-color: var(--color-accent);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
 }
