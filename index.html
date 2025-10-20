@@ -1,118 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Global Uni - A world-class education portal" />
-  <meta name="keywords" content="university, global, portal, education" />
-  <meta name="author" content="Global Uni Team" />
-  <title>Global Uni | Welcome</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
-  <link rel="stylesheet" href="assets/css/dark-mode.css" />
-  <link rel="icon" href="assets/images/favicon.png" />
+  <title>School Portal | Welcome</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="images/logo.JPG" />
 </head>
-<body>
 
-  <!-- Header (Injected) -->
-  <div id="header-include"></div>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container navbar">
+      <div class="logo" onclick="window.location.href='index.html'">
+        <img src="images/logo.JPG" alt="School Logo" style="height: 45px; border-radius: 6px; cursor: pointer;" />
+      </div>
+
+      <nav>
+        <ul id="navLinks">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" title="Toggle theme">🌙</button>
+        <button class="theme-toggle" id="mobileMenu" onclick="toggleMobileNav()">☰</button>
+      </div>
+    </div>
+  </header>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero fade-in">
     <div class="container">
-      <h1>Welcome to Global Uni</h1>
-      <p>Your gateway to world-class education</p>
-      <a href="about.html" class="btn-primary">Explore More</a>
+      <h1>Welcome to the School Portal</h1>
+      <p>
+        Your gateway to academic resources, course registration, results, and communication —
+        all in one place. Log in to explore your personalized dashboard.
+      </p>
+      <a href="login.html" class="btn mt-2">Login to Continue</a>
     </div>
   </section>
 
-  <!-- Announcement Bar -->
-  <div class="announcement-bar">
-    <marquee behavior="scroll" direction="left">
-      🚨 Admission Now Open for 2025 | 📢 New Courses Available | 📰 Read the Latest News & Events
-    </marquee>
-  </div>
+  <!-- About / Info Section -->
+  <section>
+    <div class="container grid-2">
+      <div>
+        <h2>Empowering Students</h2>
+        <p>
+          Our portal provides seamless access to academic data, learning tools, and faculty updates.
+          With a user-friendly interface and mobile-friendly design, you can focus on learning
+          and stay organized throughout your studies.
+        </p>
+        <a href="register.html" class="btn mt-2">Get Started</a>
+      </div>
 
-  <!-- Why Choose Us -->
-  <section class="why-choose-us">
-    <div class="container grid-3">
-      <div class="card">
-        <h3>Global Recognition</h3>
-        <p>Accredited programs recognized worldwide.</p>
-      </div>
-      <div class="card">
-        <h3>Experienced Faculty</h3>
-        <p>Learn from top educators and professionals.</p>
-      </div>
-      <div class="card">
-        <h3>Smart Learning</h3>
-        <p>Interactive tools and remote accessibility.</p>
+      <div>
+        <img src="images/students.jpg" alt="Students learning" style="border-radius: var(--border-radius); box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
       </div>
     </div>
   </section>
 
-  <!-- Top Programs -->
-  <section class="programs-section">
-    <div class="container">
-      <h2>Top Departments</h2>
-      <div class="program-grid">
-        <div class="program-card">Computer Science</div>
-        <div class="program-card">Business Admin</div>
-        <div class="program-card">Law</div>
-        <div class="program-card">Medicine</div>
-        <div class="program-card">Engineering</div>
+  <!-- Features Section -->
+  <section class="fade-in" style="background: var(--color-secondary);">
+    <div class="container text-center">
+      <h2>Portal Features</h2>
+      <div class="grid-3 mt-2">
+        <div>
+          <h3>📚 Course Management</h3>
+          <p>Register, view, and manage your semester courses with ease.</p>
+        </div>
+        <div>
+          <h3>🧾 Results & Grades</h3>
+          <p>Check your academic performance anytime with a single click.</p>
+        </div>
+        <div>
+          <h3>💬 Communication</h3>
+          <p>Stay connected with lecturers and classmates through the platform.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="testimonials-section">
-    <div class="container">
-      <h2>What Students Say</h2>
-      <div class="testimonial-slider">
-        <blockquote>
-          "Global Uni gave me the platform to grow academically and professionally!"
-        </blockquote>
-        <p>- Grace M., Alumni</p>
-      </div>
-    </div>
-  </section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 School Portal. All rights reserved.</p>
+    <p>
+      Designed with ❤️ by <a href="https://github.com/Vikular" target="_blank">Victor Agbor</a>
+    </p>
+  </footer>
 
-  <!-- Latest News / Events -->
-  <section class="news-events-section">
-    <div class="container">
-      <h2>Latest News</h2>
-      <div id="news-feed">
-        <!-- Loaded dynamically via main.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Signup -->
-  <section class="newsletter-section">
-    <div class="container">
-      <h2>Join Our Newsletter</h2>
-      <form id="newsletter-form">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit" class="btn-secondary">Subscribe</button>
-      </form>
-      <p class="form-feedback" id="newsletter-feedback"></p>
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
-  <div class="floating-cta">
-    <a href="contact-help.html" title="Need Help?">
-      💬
-    </a>
-  </div>
-
-  <!-- Footer (Injected) -->
-  <div id="footer-include"></div>
-
-  <!-- Scripts -->
-  <script src="assets/js/includes.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <!-- JavaScript -->
+  <script src="main.js"></script>
 </body>
 </html>
